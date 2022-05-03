@@ -9,13 +9,14 @@ typedef struct aluno {
     float teste;
 } Aluno;
 
-//////////////////////////////////
 //Ex.1
-int nota (Aluno a) {
+int nota (Aluno a) 
+{
     int s = 0, i, reprova=0;
     float m;
     int final;
-    for(i=0; i<6;i++) {
+    for(i=0; i<6;i++) 
+    {
         s += a.miniT[i];
     }
 
@@ -27,9 +28,11 @@ int nota (Aluno a) {
     return final;
 }
 
-int procuraNum (int num, Aluno t[], int N) {
+int procuraNum (int num, Aluno t[], int N) 
+{
     int i=0, r=N-1, mid;
-    while (r>l) {
+    while (r>l) 
+    {
         mid = (l+r)/2:
         if /t[mid].numero >= num)
             r=mid
@@ -43,15 +46,18 @@ int procuraNum (int num, Aluno t[], int N) {
 
 ////////////////////////////////////////
 
-int bubble (Aluno t[], int N) {
+int bubble (Aluno t[], int N) 
+{
     int i, r=0;
-    for (i=0;i<N-i;i++) {
+    for (i=0;i<N-i;i++) 
+    {
         if (t[i].nummero>t[i+1].numero) {swap(t,i,i+1); r++};
     }
     return r;
 }
 
-void swap(Aluno t[],int i, int j) {
+void swap(Aluno t[],int i, int j) 
+{
     Aluno aux;
     aux = t[i];
     t[i] = t[j];
@@ -59,33 +65,40 @@ void swap(Aluno t[],int i, int j) {
 }
 ////////////////////////////////////////
 
-void ordenaPorNum (Aluno t [], int N) {
+void ordenaPorNum (Aluno t [], int N) 
+{
     while (bubble(t,N)) N--;
 }
 
-int procuraNumInd (int num, int ind[], Aluno t[], int N) {
+int procuraNumInd (int num, int ind[], Aluno t[], int N) 
+{
     int l=0, r=N-1,mid;
-    while (r>l) {
+    while (r>l) 
+    {
         mid = (l+r)/2;
         if(t[ind[mid]].numero >= num)
-            r =mid;´´
+            r =mid;
         elsel= mid + 1;
     }
     if(t[ind[l]].numero==num)
 }
 
-void swapI(int a[], int i, int j) {
+void swapI(int a[], int i, int j) 
+{
     int aux = a[i];
     a[i] = a[j];
     a[j] = aux;
 }
 
-void criaIndPorNum (Aluno t [], int N, int ind[]) {
+void criaIndPorNum (Aluno t [], int N, int ind[]) 
+{
     int i, j, min;
     for (i=0; i<N; i++) ind[i] = i;
-    for (i=0, i<N; i++) {
+    for (i=0, i<N; i++) 
+    {
         min=i;
-        for (j=i+1; j<N; j++) {
+        for (j=i+1; j<N; j++) 
+        {
             if (t[ind[j]].numero < t[ind[min]].numero) min = j;
         }
         swapI(ind, i, min);
@@ -93,12 +106,15 @@ void criaIndPorNum (Aluno t [], int N, int ind[]) {
 }
 
 
-void criaIndPorNome (Aluno t [], int N, int ind[]) {
+void criaIndPorNome (Aluno t [], int N, int ind[]) 
+{
     int i, j, min;
     for (i=0; i<N; i++) ind[i] = i;
-    for (i=0, i<N; i++) {
+    for (i=0, i<N; i++) 
+    {
         min=i;
-        for (j=i+1; j<N; j++) {
+        for (j=i+1; j<N; j++) 
+        {
             if (strcmp(t[ind[j]].nome, t[ind[min]].nome)<0) min = j;
         }
         swapI(ind, i, min);
@@ -106,7 +122,8 @@ void criaIndPorNome (Aluno t [], int N, int ind[]) {
 }
 }
 
-void imprimeTurmaInd (int ind[], Aluno t[], int N) {
+void imprimeTurmaInd (int ind[], Aluno t[], int N) 
+{
     int i;
     for (i=0; i<N; i++) imprimeAluno(t+ind[i]);
 }
@@ -114,39 +131,57 @@ void imprimeTurmaInd (int ind[], Aluno t[], int N) {
 
 /////////////////////////////////
 
-void dumpV (int v[], int N) {
+void dumpV (int v[], int N) 
+{
     int i;
     for (i=0; i<N; i++) printf ("%d ", v[i]);
 }
 
-void imprimeAluno (Aluno *a) {
+void imprimeAluno (Aluno *a) 
+{
     int i;
     printf ("%-5d %s (%d", a->numero, a->nome, a->miniT[0]);
     for(i=1; i<6; i++) printf (", %d", a->miniT[i]);
     printf (") %5.2f %d\n", a->teste, nota(*a));
 }
 
-int nota (Aluno a){
+int nota (Aluno a)
+{
     return 0;
 }
 
-int procuraNum (int num, Aluno t[], int N){
+int procuraNum (int num, Aluno t[], int N)
+{
     return -1;
 }
 
-void ordenaPorNum (Aluno t [], int N) {}
+void ordenaPorNum (Aluno t [], int N) 
+{
 
-int procuraNumInd (int num, int ind[], Aluno t[], int N) {
+}
+
+int procuraNumInd (int num, int ind[], Aluno t[], int N) 
+{
     return -1;
 }
 
-void criaIndPorNum (Aluno t [], int N, int ind[]) {}
+void criaIndPorNum (Aluno t [], int N, int ind[]) 
+{
 
-void criaIndPorNome (Aluno t [], int N, int ind[]) {}
+}
 
-void imprimeTurmaInd (int ind[], Aluno t[], int N) {}
+void criaIndPorNome (Aluno t [], int N, int ind[]) 
+{
 
-int main() {
+}
+
+void imprimeTurmaInd (int ind[], Aluno t[], int N) 
+{
+
+}
+
+int main() 
+{
     Aluno Turma1 [7] = {{4444, "André", {2,1,0,2,2,2}, 10.5}
                        ,{6666, "Bruna", {2,2,2,1,0,0}, 12.5}
                        ,{8888, "Carla", {2,1,2,1,0,1}, 14.5}
