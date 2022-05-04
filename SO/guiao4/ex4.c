@@ -1,0 +1,5 @@
+/*
+    redir itxt
+    o
+    cat
+*/

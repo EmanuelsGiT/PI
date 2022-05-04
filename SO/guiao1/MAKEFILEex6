@@ -1,0 +1,7 @@
+CC  = gcc
+
+CFLAGS = -Wall -c 
+
+-o peolple-o pepolce.c
+
+./people
