@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h> 
 #include <sys/wait.h> 
+#include <stdlib.h>
 /*
 pid_t getpid(void);
 pid_t getppid(void);
@@ -12,37 +13,56 @@ int WIFEXITED(int status);  "macro"
 int WEXITSTATUS(int status);  "macro" 
 */
 
-
-void deteta (int matriz[][3], int x, int N)
+nt main(int argc, char* argv[])
 {
-    int i, j, pid, status;
+    int lin = atoi(argv[1]);
+    int col = atoi(argv[2]);
+    int num = atoi(argv[3]);
+    int matriz[lin][col];
+    int i, j, find=0, status;
+    pid_t pid;
 
-    for (i=0;i<N;i++)
+
+    for(i=0;i<lin;i++)
+        for(j=0;j<col;j++)
+            matriz[i][j]=rand()%100;
+
+    for(i=0;i<lin;i++)
+    {
+        for(j=0;j<col;j++)
+            printf("%d ",matriz[i][j]);
+        
+        printf("\n");   
+    }
+        
+
+    for(i = 0; i < lin; i++)
     {
         pid = fork();
-        if (pid == 0)
-        {
-            for (j=0;j<N;j++)
-            {
-                if (x == matriz[i][j])
-                printf(" %d %d = aqui\n",i, j);
+        if(pid == 0){
+            for(j=0;find==0 && j<col;j++){
+                if(matriz[i][j]==num){
+                    find=1;
+                    printf("find : %d\n", find);
+
+                }
             }
-            _exit(i);
+            exit(find);
         }
+        printf("find2 : %d\n", find);
     }
+    pid_t child;
 
-    for (i=0;i<10;i++)
-        wait(&status);
-}
+    for(i = 0; i < lin; i++)
+    {
+        child = wait(&status);
 
-int main(int args, char* argv[])
-{  
-
-    int matriz[][3] = {{1,2,3},
-                       {4,5,6},
-                       {7,8,9}};
-
-    deteta(matriz, 9, 3);
-
+        if(WEXITSTATUS(status)==1) 
+        {
+            printf("Element %d not found.\n", num);
+            return 0;
+        }
+        else printf("Element %d not found in child %d.\n", num, child);
+    }
     return 0;
 }

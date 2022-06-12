@@ -4,20 +4,24 @@
 
 int main(int args, char* argv[])
 {   
-    int i;
-    int pid;
+    int i, status;
+    pid_t pid;
 
     for(i = 0; i<10; i++)
     {
-        pid = fork();
-        if(pid>0)
+        if(pid==0)
         {
-            printf("child pid %d\n", pid);
-        } 
-
-        printf("pid: %d \n", getpid());
-
-        printf("ppid: %d \n\n", getppid());
+            //código do filho
+            printf("[FILHO] O meu pid é %d\n", getpid());
+            printf("[FILHO] O pid do meu pai é %d\n", getppid());
+            _exit(i);
+        }
+        else
+        {
+            //código do pai
+            wait(&status); 
+            printf("[PAI] Código de saída do filho: %d\n", WEXITSTATUS(status));
+        }
     }
 
     return 0;

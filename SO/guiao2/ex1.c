@@ -15,9 +15,17 @@
 
 int main(int args, char *argv[])
 {
-    printf("pid: %d \n", getpid());
-    printf("ppid: %d \n", getppid());   
+    pid_t pid; 
+    pid = fork();
 
+    if(pid>0)
+    {
+        printf("child pid %d\n", pid);
+    } 
+
+    printf("pid: %d \n", getpid());
+    
+    printf("ppid: %d \n", getppid());   
 
     return 0;
 }

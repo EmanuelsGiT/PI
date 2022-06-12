@@ -13,24 +13,25 @@ int WEXITSTATUS(int status);  "macro"
 */
 int main(int args, char* argv[])
 {   
-    int i, pid, status, finished_pid;
+    int i, status, finished_pid;
+    pid_t pid; 
     
     for (i=0;i<10;i++)
     {
         pid = fork();
         if (pid == 0)
         {
-            printf("filho %d\n",i);
-            _exit(i);
+            printf("[Child] Child PID: %d\n", getpid());
+            printf("[Child] Father PID: %d\n", getppid());
+            exit(i);
         }
     }
 
     for (i=0;i<10;i++)
     {
         finished_pid = wait(&status);
-        printf("child pid finished: %d; status code: %d\n", finished_pid, WEXITSTATUS(status));
+        printf("[Father] Child pid finished: %d; status code: %d\n", finished_pid, WEXITSTATUS(status));
     }
-    
 
     return 0;
 }
