@@ -14,25 +14,21 @@ int execvp(const char *file, char *const argv[]);
 int main(int argc, char* argv[])
 {
     pid_t pid;
+    int i=1, status, exec_ret;
 
-    int i=1, status;
-
-    while(i<=10)
+    while(i<=argc)
     {
         pid = fork();
-        if(pid==0)
-        {
-            printf("[FILHO] O meu pid é %d\n", getpid());
-            printf("[FILHO] O pid do meu pai é %d\n", getppid());
-            _exit(i);
-        }
-        else
-        {
-            wait(&status); 
-            printf("[PAI] Código de saída do filho: %d\n", WEXITSTATUS(status));
+        if(pid == 0){
+            exec_ret = execlp(argv[i],argv[i],NULL);
+            perror("reached return");
+            _exit(exec_ret);
         }
         i++;
     }
+
+    for(i=0;i<argc;i++)
+        wait(&status);
 
     return 0;
 }

@@ -1,57 +1,76 @@
-#include <sys/types.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
 #include <stdlib.h>
 
-//tam = 24
-typedef struct person
+struct user //sizeof = 204
 {
-    char name[20]; //20 bytes
-    int  age;    //4 bytes
-} Person;
+    int nome[200];
+    int idade;
+}Person;
 
+#define MAX_BUF 1024
+//distinguir
+//abrir o ficheiro
+//posicionar no fim -append
 
-
-int main(int argc, char *argv[])
+int add(char *file, char* buff, int bytes_read)
 {
+    int fd_origem;
+
+    if((fd_origem = open(file,O_APPEND))==-1)
+    {
+        printf("Msg : %s, Nr %d\n", strerror(errno), errno);
+        perror("erro no open origem");
+        return -1;
+    }
+
+    char*  strsep(buff,"")
+}
+
+
+int main(int argc, char* argx[])
+{
+    int fd_origem;
     
+    char buff[MAX_BUF];
+
+    if(argx[2]=='i')
+    {
+        buff = 
+        strcat(buff,argx[4]);
+    } add(argx[1], buf, bytes_read);
     
-    Person p;
-
-    
-    printf("%s\n", argv[0]);
-    printf("%s\n", argv[1]);
-    printf("%s\n", argv[2]);
-    printf("%s\n", argv[3]);
-
-    strcpy(p.name,argv[2]);
-    p.age = atoi(argv[3]);
-
-    int people_fd = open("people.bin", O_CREAT | O_APPEND | O_RDWR, 0640);
-
-    int  bytes = write(people_fd, &p, sizeof(Person));
-
-
-    printf("%d\n", bytes);
-
-    lseek(people_fd, 0, SEEK_SET);
-    //lseek(people_fd, -sizeof(Person), SEEK_END); //inicio
-    //lseek(people_fd, -sizeof(Person), SEEK_CUR); //anterior
-
-    Person p1_read;
-
-    bytes = read(people_fd, &p1_read, sizeof(Person));
-
-    if (bytes < 0)
-        perror("erro\n");
-
-    printf("read %d bytes\n", bytes);
-
-    printf("p1_readname %s\n", p1_read.name);
-    printf("p1_readage %d\n", p1_read.age);
+    add(fd_origem);
 
     return 0;
+}
+
+//lseek(fd,-sizeof(Person), SEEK_CUR)
+//O_RDWR
+//if(strcmp(arg[x],"y"));
+
+
+int person_change_age(long pos, int age)
+{
+    Person p;
+
+    //abrir
+    int fd = open(FILENAME, O_RDWR, 0600);
+    //colocar no sitio certo
+    int res = lseek(fd,pos*sizeof(Person),SEEK_SET);
+    //ler
+    int bytes_read = read(fd,&p,sizeof(Person));
+    //colocar a idade certa
+    p.age=age;
+    //andar para trás
+    int seek_res = lseek(fd,&p,-sizeof(Person),SEEK_CUR);
+
+    int res=write(fd,&p,sizeof(Person));
+
+    close(FILENAME);
+
+    if(res<0)
+    {
+        //perror(...);
+    }
 }

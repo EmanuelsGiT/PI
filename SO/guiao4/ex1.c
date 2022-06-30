@@ -1,49 +1,49 @@
-#include <unistd.h> /* chamadas ao sistema: defs e dels essenciais */
-#include <fcntl.h>
+#include <unistd.h>
 #include <stdio.h>
-#include <string.h>
+#include "string.h"
+#include <stdlib.h>
+#include <fcntl.h>
 
+// 0: stdin -> teclado
+// 1: stdout -> ecra
+// 2: stderr -> ecra
 
-/*
-    int dup(int fd);                // duplicar o descritor (cria um novo descritor q aponta para o original)
-    int dup2 (int fd1, int fd2);    // escolhe o discrito com o menor num 
-*/
-
-/*
-    cat < in.txt
-        > out.txt
-
-*/
-
-int main(int argc, char * argv[])
+int main(int argc, char* argv[])
 {
+    int filein = open("/etc/passwd", O_RDONLY);
+    dup2(filein,0);
+    close(filein);
 
+    int outOriginal = dup(1);
 
-    int ifd = open("/etc/passwd", O_RDONLY);
+    int fileout = open("saida.txt", O_CREAT|O_TRUNC|O_WRONLY, 0666);
+    dup2(fileout,1);
+    close(fileout);
 
-    int ofd = open("saida.txt", O_CREAT | O_TRUNC | O_WRONLY,0640);
+    int filerror = open("erros.txt", O_CREAT|O_TRUNC|O_WRONLY, 0666);
+    dup2(filerror,2);
+    close(filerror);
 
-    int efd = open("erros.txt", O_CREAT | O_TRUNC | O_WRONLY,0640);
+    char buffer;
+    char line[1024];
+    int read_res;
+    int i=0;
+    while((read_res=read(0,&buffer,1)) != 0)
+    {
+        line[i]=buffer;
+        i++;
+        if(buffer=='\n')
+        {
+            write(1,line,i);
+            write(2,line,i);
+            fflush(stdout);
+            i=0;
+        }
+    }
 
-    int original_stdin_fd = dup(0);
+    dup2(outOriginal,1);
+    close(outOriginal);
 
-    dup2(ifd,0);
-    close(ifd);
-
-    dup2(ofd,1);
-    close(ofd);
-    
-    
-    dup2(efd,2);
-    close(efd);
-
-
-    //sleep(20);
-
-    dup2(original_stdin_fd,1);
-
-    write(original_stdin_fd,"terminei",8);
-    write(1,"done",4);
-
+    printf("Terminei\n");
     return 0;
 }

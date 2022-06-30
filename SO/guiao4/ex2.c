@@ -1,49 +1,58 @@
-#include <unistd.h> /* chamadas ao sistema: defs e dels essenciais */
-#include <fcntl.h>
+#include <unistd.h>
 #include <stdio.h>
-#include <string.h>
+#include "string.h"
+#include <stdlib.h>
+#include <fcntl.h>
 #include <sys/wait.h>
 
-int main(int argc, char * argv[])
+
+int main(int argc, char* argv[])
 {
+    int filein = open("/etc/passwd", O_RDONLY);
+    dup2(filein,0);
+    close(filein);
 
+    int outOriginal = dup(1);
 
-    int ifd = open("/etc/passwd", O_RDONLY);
+    int fileout = open("saida.txt", O_CREAT|O_TRUNC|O_WRONLY, 0666);
+    dup2(fileout,1);
+    close(fileout);
 
-    int ofd = open("saida.txt", O_CREAT | O_TRUNC | O_WRONLY,0640);
+    int filerror = open("erros.txt", O_CREAT|O_TRUNC|O_WRONLY, 0666);
+    dup2(filerror,2);
+    close(filerror);
 
-    int efd = open("erros.txt", O_CREAT | O_TRUNC | O_WRONLY,0640);
+    char buffer;
+    char line[1024];
+    int read_res, wait_res, status;
+    int i=0;
+    
+    pid_t pid = fork();
 
-    int original_stdin_fd = dup(0);
-
-    int status;
-
-    dup2(ifd,0);
-    dup2(ofd,1);
-    dup2(efd,2);
-
-
-
-
-    int pid = fork();
-
-    if (pid == 0)
+    if(pid==0)
     {
-        write(0,"teste",5);
-        write(1,"teste",5);
-        write(2,"teste",5);
-
-        close(ifd);
-        close(ofd);
-        close(efd);
+        while((read_res=read(0,&buffer,1)) != 0)
+        {
+            line[i]=buffer;
+            i++;
+            if(buffer=='\n')
+            {
+                write(1,line,i);
+                write(2,line,i);
+                fflush(stdout);
+                i=0;
+            }
+        }
         
-        _exit(pid);
+        exit(0);
     }
-
-    wait(&status);
-    dup2(original_stdin_fd,1);
-
-    write(original_stdin_fd,"terminei",8);
-
+    else
+    {
+        wait_res = wait(&status); 
+        dup2(outOriginal,1);
+        close(outOriginal);
+        printf("END\n");
+    }
+    
     return 0;
 }

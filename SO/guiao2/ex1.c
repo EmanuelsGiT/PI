@@ -19,9 +19,7 @@ int main(int args, char *argv[])
     pid = fork();
 
     if(pid>0)
-    {
         printf("child pid %d\n", pid);
-    } 
 
     printf("pid: %d \n", getpid());
     
