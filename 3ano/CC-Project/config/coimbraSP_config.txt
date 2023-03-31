@@ -1,0 +1,8 @@
+# config SP do coimbra.braga.lisboa 
+coimbra.braga.lisboa DB ./BD/DNS_DB_coimbra.txt 
+coimbra.braga.lisboa SS 10.1.1.13:5353
+#coimbra.braga.lisboa SS 10.4.4.12:5353
+coimbra.braga.lisboa DD 127.0.0.1
+coimbra.braga.lisboa LG ./var/dns/coimbra-lisboa.txt
+all LG ./log/all-log.txt
+root ST ./BD/DNS_DB_lisboa.txt

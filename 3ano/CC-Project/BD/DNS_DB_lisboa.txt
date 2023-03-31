@@ -1,0 +1,35 @@
+# DNS database para o servidor ROOT (.)
+# Inclui um pointer para 
+# os TLD
+
+@ DEFAULT lisboa.
+TTL DEFAULT 86400
+
+@ SOASP ns1.lisboa. TTL
+@ SOAADMIN dns\.admin.lisboa. TTL
+@ SOASERIAL 1 TTL
+@ SOAREFRESH 14400 TTL
+@ SOARETRY 3600 TTL
+@ SOAEXPIRE 604800 TTL
+
+@ NS ns1.lisboa. TTL
+@ NS ns2.lisboa. TTL
+
+porto.@ NS ns1.porto.lisboa.
+porto.@ NS ns2.porto.lisboa.
+porto.@ NS ns3.porto.lisboa.
+braga.@ NS ns1.braga.lisboa.
+braga.@ NS ns2.braga.lisboa.
+braga.@ NS ns3.braga.lisboa.
+
+ns1 A 10.2.2.10 TTL
+ns2 A 10.3.3.10 TTL
+ns1.porto A 10.3.3.11 TTL
+ns2.porto A 10.2.2.12 TTL
+ns3.porto A 10.1.1.11 TTL
+ns1.braga A 10.2.2.11 TTL
+ns2.braga A 10.1.1.10 TTL
+ns3.braga A 10.3.3.12 TTL
+
+sp CNAME ns1 TTL
+sp2 CNAME ns2 TTL

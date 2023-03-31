@@ -1,0 +1,6 @@
+- Diagramas de Sequencia
+- [x] ValidaAfinacoes
+- [x] Registarjogador
+- [ ] PrepararCorrida
+- [ ] calcularClassificacaoCorrida
+- [ ] calcularClassificacaoCampeonato

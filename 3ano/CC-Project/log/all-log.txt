@@ -1,0 +1,108 @@
+19:1:2023.17:24:32:26857 ST 10.2.2.10 0
+19:1:2023.17:24:32:26868 EV @ conf-file-read -c
+19:1:2023.17:24:32:27036 EV @ log-file-create ./log/all-log.txt
+19:1:2023.17:24:32:27104 EV @ BD/DNS_DB_lisboa.txt
+19:1:2023.17:26:57:796181 ST 10.2.2.11 0
+19:1:2023.17:26:57:796193 EV @ conf-file-read -c
+19:1:2023.17:26:57:796388 EV @ log-file-read ./log/all-log.txt
+19:1:2023.17:26:57:796444 EV @ BD/DNS_DB_braga.txt
+19:1:2023.17:28:27:109840 ST 10.3.3.13 0
+19:1:2023.17:28:27:109857 EV @ conf-file-read -c
+19:1:2023.17:28:27:110107 EV @ log-file-read ./log/all-log.txt
+19:1:2023.17:28:27:110169 EV @ BD/DNS_DB_coimbra.txt
+19:1:2023.17:30:34:730884 ST 10.4.4.12 0
+19:1:2023.17:30:34:730895 EV @ conf-file-read -c
+19:1:2023.17:30:34:731075 EV @ log-file-read ./log/all-log.txt
+19:1:2023.17:30:36:861173 ZT 10.3.3.13:5353 
+19:1:2023.17:30:34:734157 ZT ('10.4.4.12', 52960) SP; ZT duration time in milliseconds:-2228; bytes sended:31
+19:1:2023.17:31:25:989133 ST 10.4.4.12 0 deporto
+19:1:2023.17:31:25:989143 EV @ conf-file-read -c
+19:1:2023.17:31:25:989310 EV @ log-file-read ./log/all-log.txt
+19:1:2023.17:31:28:114247 ZT 10.3.3.13:5353 
+19:1:2023.17:31:25:990755 ZT ('10.4.4.12', 59518) SP; ZT duration time in milliseconds:-2224; bytes sended:31
+19:1:2023.17:33:17:704686 ST 10.4.4.10 0
+19:1:2023.17:33:17:704686 ST 10.4.4.10 0
+19:1:2023.17:33:17:704862 EV @ log-file-read ./log/all-log.txt
+19:1:2023.17:35:51:554926 QR ('10.4.4.1', 34459) b'\x9fn\x00\x00\x00\x00\x00\x19www.coimbra.braga.lisboa.\x07'
+19:1:2023.17:35:51:555590 QE 10.2.2.10:5353 40814,Q,0,0,0,0;www.coimbra.braga.lisboa.,MX;
+19:1:2023.17:35:51:555949 QR ('10.4.4.10', 58195) b'\x9fn\x00\x00\x00\x00\x00\x19www.coimbra.braga.lisboa.\x07'
+19:1:2023.17:35:51:557362 RP ('10.4.4.10', 58195) 40814,A,1,0,3,3;www.coimbra.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa.,braga.lisboa. NS ns2.braga.lisboa.,braga.lisboa. NS ns3.braga.lisboa.;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:35:51:557942 RR ('10.2.2.10', 44952) 40814,A,1,0,3,3;www.coimbra.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa.,braga.lisboa. NS ns2.braga.lisboa.,braga.lisboa. NS ns3.braga.lisboa.;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:35:51:558035 QE 10.2.2.11:5353 40814,Q,0,0,0,0;www.coimbra.braga.lisboa.,MX;
+19:1:2023.17:35:51:558200 QR ('10.4.4.10', 58195) b'\x9fn\x00\x00\x00\x00\x00\x19www.coimbra.braga.lisboa.\x07'
+19:1:2023.17:35:51:559965 RR ('10.2.2.11', 53563) 40814,A,1,0,3,3;www.coimbra.braga.lisboa.,MX;;coimbra.braga.lisboa. NS ns1.coimbra.braga.lisboa.,coimbra.braga.lisboa. NS ns2.coimbra.braga.lisboa.,coimbra.braga.lisboa. NS ns3.coimbra.braga.lisboa.;ns1.coimbra.braga.lisboa. A 10.3.3.13 86400,ns2.coimbra.braga.lisboa. A 10.1.1.13 86400,ns3.coimbra.braga.lisboa. A 10.4.4.12 86400;
+19:1:2023.17:35:51:560021 QE 10.3.3.13:5353 40814,Q,0,0,0,0;www.coimbra.braga.lisboa.,MX;
+19:1:2023.17:35:51:559666 RP ('10.4.4.10', 58195) 40814,A,1,0,3,3;www.coimbra.braga.lisboa.,MX;;coimbra.braga.lisboa. NS ns1.coimbra.braga.lisboa.,coimbra.braga.lisboa. NS ns2.coimbra.braga.lisboa.,coimbra.braga.lisboa. NS ns3.coimbra.braga.lisboa.;ns1.coimbra.braga.lisboa. A 10.3.3.13 86400,ns2.coimbra.braga.lisboa. A 10.1.1.13 86400,ns3.coimbra.braga.lisboa. A 10.4.4.12 86400;
+19:1:2023.17:35:51:560317 QR ('10.4.4.10', 58195) b'\x9fn\x00\x00\x00\x00\x00\x19www.coimbra.braga.lisboa.\x07'
+19:1:2023.17:35:51:561648 RP ('10.4.4.10', 58195) 40814,A,1,0,3,3;www.coimbra.braga.lisboa.,MX;;coimbra.braga.lisboa. NS ns1.coimbra.braga.lisboa. 86400,coimbra.braga.lisboa. NS ns2.coimbra.braga.lisboa. 86400,coimbra.braga.lisboa. NS ns3.coimbra.braga.lisboa. 86400;ns1.coimbra.braga.lisboa. A 10.3.3.13 86400,ns2.coimbra.braga.lisboa. A 10.1.1.13 86400,ns3.coimbra.braga.lisboa. A 10.4.4.12 86400;
+19:1:2023.17:35:51:562136 RR ('10.3.3.13', 38730) 40814,A,1,0,3,3;www.coimbra.braga.lisboa.,MX;;coimbra.braga.lisboa. NS ns1.coimbra.braga.lisboa. 86400,coimbra.braga.lisboa. NS ns2.coimbra.braga.lisboa. 86400,coimbra.braga.lisboa. NS ns3.coimbra.braga.lisboa. 86400;ns1.coimbra.braga.lisboa. A 10.3.3.13 86400,ns2.coimbra.braga.lisboa. A 10.1.1.13 86400,ns3.coimbra.braga.lisboa. A 10.4.4.12 86400;
+19:1:2023.17:36:59:173298 QR ('10.4.4.1', 54132) b'T\x16\x00\x00\x00\x00\x00\x19www.coimbra.braga.lisboa.\x06'
+19:1:2023.17:36:59:174154 QE 10.2.2.10:5353 21526,Q,0,0,0,0;www.coimbra.braga.lisboa.,NS;
+19:1:2023.17:36:59:174592 QR ('10.4.4.10', 47608) b'T\x16\x00\x00\x00\x00\x00\x19www.coimbra.braga.lisboa.\x06'
+19:1:2023.17:36:59:175421 RP ('10.4.4.10', 47608) 21526,A,1,0,0,0;www.coimbra.braga.lisboa.,NS;;;;
+19:1:2023.17:36:59:175911 RR ('10.2.2.10', 47557) 21526,A,1,0,0,0;www.coimbra.braga.lisboa.,NS;;;;
+19:1:2023.17:37:15:909746 QR ('10.4.4.1', 41858) b'\x14\x0e\x00\x00\x00\x00\x00\x19www.coimbra.braga.lisboa.\x08'
+19:1:2023.17:37:15:910254 QE 10.2.2.10:5353 5134,Q,0,0,0,0;www.coimbra.braga.lisboa.,A;
+19:1:2023.17:37:15:910551 QR ('10.4.4.10', 38558) b'\x14\x0e\x00\x00\x00\x00\x00\x19www.coimbra.braga.lisboa.\x08'
+19:1:2023.17:37:15:911002 RP ('10.4.4.10', 38558) 5134,A,1,0,3,3;www.coimbra.braga.lisboa.,A;;braga.lisboa. NS ns1.braga.lisboa.,braga.lisboa. NS ns2.braga.lisboa.,braga.lisboa. NS ns3.braga.lisboa.;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:37:15:911212 RR ('10.2.2.10', 42613) 5134,A,1,0,3,3;www.coimbra.braga.lisboa.,A;;braga.lisboa. NS ns1.braga.lisboa.,braga.lisboa. NS ns2.braga.lisboa.,braga.lisboa. NS ns3.braga.lisboa.;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:37:15:911294 QE 10.2.2.11:5353 5134,Q,0,0,0,0;www.coimbra.braga.lisboa.,A;
+19:1:2023.17:37:15:911394 QR ('10.4.4.10', 38558) b'\x14\x0e\x00\x00\x00\x00\x00\x19www.coimbra.braga.lisboa.\x08'
+19:1:2023.17:37:15:911864 RP ('10.4.4.10', 38558) 5134,A,1,0,3,3;www.coimbra.braga.lisboa.,A;;coimbra.braga.lisboa. NS ns1.coimbra.braga.lisboa.,coimbra.braga.lisboa. NS ns2.coimbra.braga.lisboa.,coimbra.braga.lisboa. NS ns3.coimbra.braga.lisboa.;ns1.coimbra.braga.lisboa. A 10.3.3.13 86400,ns2.coimbra.braga.lisboa. A 10.1.1.13 86400,ns3.coimbra.braga.lisboa. A 10.4.4.12 86400;
+19:1:2023.17:37:15:912062 RR ('10.2.2.11', 46607) 5134,A,1,0,3,3;www.coimbra.braga.lisboa.,A;;coimbra.braga.lisboa. NS ns1.coimbra.braga.lisboa.,coimbra.braga.lisboa. NS ns2.coimbra.braga.lisboa.,coimbra.braga.lisboa. NS ns3.coimbra.braga.lisboa.;ns1.coimbra.braga.lisboa. A 10.3.3.13 86400,ns2.coimbra.braga.lisboa. A 10.1.1.13 86400,ns3.coimbra.braga.lisboa. A 10.4.4.12 86400;
+19:1:2023.17:37:15:912114 QE 10.3.3.13:5353 5134,Q,0,0,0,0;www.coimbra.braga.lisboa.,A;
+19:1:2023.17:37:15:912376 QR ('10.4.4.10', 38558) b'\x14\x0e\x00\x00\x00\x00\x00\x19www.coimbra.braga.lisboa.\x08'
+19:1:2023.17:37:15:913106 RP ('10.4.4.10', 38558) 5134,A,0,1,3,0;www.coimbra.braga.lisboa.,A;www.coimbra.braga.lisboa. A 10.0.13.12 86400 200;coimbra.braga.lisboa. NS ns1.coimbra.braga.lisboa. 86400,coimbra.braga.lisboa. NS ns2.coimbra.braga.lisboa. 86400,coimbra.braga.lisboa. NS ns3.coimbra.braga.lisboa. 86400;;
+19:1:2023.17:37:15:913521 RR ('10.3.3.13', 55923) 5134,A,0,1,3,0;www.coimbra.braga.lisboa.,A;www.coimbra.braga.lisboa. A 10.0.13.12 86400 200;coimbra.braga.lisboa. NS ns1.coimbra.braga.lisboa. 86400,coimbra.braga.lisboa. NS ns2.coimbra.braga.lisboa. 86400,coimbra.braga.lisboa. NS ns3.coimbra.braga.lisboa. 86400;;
+19:1:2023.17:37:32:717994 QR ('10.4.4.1', 47827) b'\xd8\xaf\x00\x00\x00\x00\x00\x15coimbra.braga.lisboa.\x07'
+19:1:2023.17:37:32:718753 QE 10.2.2.10:5353 55471,Q,0,0,0,0;coimbra.braga.lisboa.,MX;
+19:1:2023.17:37:32:719234 QR ('10.4.4.10', 52391) b'\xd8\xaf\x00\x00\x00\x00\x00\x15coimbra.braga.lisboa.\x07'
+19:1:2023.17:37:32:724483 RP ('10.4.4.10', 52391) 55471,A,1,0,3,3;coimbra.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa.,braga.lisboa. NS ns2.braga.lisboa.,braga.lisboa. NS ns3.braga.lisboa.;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:37:32:724844 RR ('10.2.2.10', 43523) 55471,A,1,0,3,3;coimbra.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa.,braga.lisboa. NS ns2.braga.lisboa.,braga.lisboa. NS ns3.braga.lisboa.;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:37:32:725574 QE 10.2.2.11:5353 55471,Q,0,0,0,0;coimbra.braga.lisboa.,MX;
+19:1:2023.17:37:32:725708 QR ('10.4.4.10', 52391) b'\xd8\xaf\x00\x00\x00\x00\x00\x15coimbra.braga.lisboa.\x07'
+19:1:2023.17:37:32:726233 RP ('10.4.4.10', 52391) 55471,A,1,0,3,3;coimbra.braga.lisboa.,MX;;coimbra.braga.lisboa. NS ns1.coimbra.braga.lisboa.,coimbra.braga.lisboa. NS ns2.coimbra.braga.lisboa.,coimbra.braga.lisboa. NS ns3.coimbra.braga.lisboa.;ns1.coimbra.braga.lisboa. A 10.3.3.13 86400,ns2.coimbra.braga.lisboa. A 10.1.1.13 86400,ns3.coimbra.braga.lisboa. A 10.4.4.12 86400;
+19:1:2023.17:37:32:726450 RR ('10.2.2.11', 47712) 55471,A,1,0,3,3;coimbra.braga.lisboa.,MX;;coimbra.braga.lisboa. NS ns1.coimbra.braga.lisboa.,coimbra.braga.lisboa. NS ns2.coimbra.braga.lisboa.,coimbra.braga.lisboa. NS ns3.coimbra.braga.lisboa.;ns1.coimbra.braga.lisboa. A 10.3.3.13 86400,ns2.coimbra.braga.lisboa. A 10.1.1.13 86400,ns3.coimbra.braga.lisboa. A 10.4.4.12 86400;
+19:1:2023.17:37:32:726502 QE 10.3.3.13:5353 55471,Q,0,0,0,0;coimbra.braga.lisboa.,MX;
+19:1:2023.17:37:32:726887 QR ('10.4.4.10', 52391) b'\xd8\xaf\x00\x00\x00\x00\x00\x15coimbra.braga.lisboa.\x07'
+19:1:2023.17:37:32:727561 RR ('10.3.3.13', 54047) 55471,A,0,1,3,4;coimbra.braga.lisboa.,MX;coimbra.braga.lisboa. MX mx1.coimbra.braga.lisboa. 86400 10;coimbra.braga.lisboa. NS ns1.coimbra.braga.lisboa. 86400,coimbra.braga.lisboa. NS ns2.coimbra.braga.lisboa. 86400,coimbra.braga.lisboa. NS ns3.coimbra.braga.lisboa. 86400;ns1.coimbra.braga.lisboa. A 10.3.3.13 86400,ns2.coimbra.braga.lisboa. A 10.1.1.13 86400,ns3.coimbra.braga.lisboa. A 10.4.4.12 86400,mx1.coimbra.braga.lisboa. A 10.0.12.10 86400;
+19:1:2023.17:37:32:727363 RP ('10.4.4.10', 52391) 55471,A,0,1,3,4;coimbra.braga.lisboa.,MX;coimbra.braga.lisboa. MX mx1.coimbra.braga.lisboa. 86400 10;coimbra.braga.lisboa. NS ns1.coimbra.braga.lisboa. 86400,coimbra.braga.lisboa. NS ns2.coimbra.braga.lisboa. 86400,coimbra.braga.lisboa. NS ns3.coimbra.braga.lisboa. 86400;ns1.coimbra.braga.lisboa. A 10.3.3.13 86400,ns2.coimbra.braga.lisboa. A 10.1.1.13 86400,ns3.coimbra.braga.lisboa. A 10.4.4.12 86400,mx1.coimbra.braga.lisboa. A 10.0.12.10 86400;
+19:1:2023.17:38:5:49442 QR ('10.4.4.1', 58954) b'\x11\x81\x00\x00\x00\x00\x00\x16www.fake.braga.lisboa.\x07'
+19:1:2023.17:38:5:50567 QE 10.2.2.10:5353 4481,Q,0,0,0,0;www.fake.braga.lisboa.,MX;
+19:1:2023.17:38:5:50924 QR ('10.4.4.10', 34775) b'\x11\x81\x00\x00\x00\x00\x00\x16www.fake.braga.lisboa.\x07'
+19:1:2023.17:38:5:51433 RP ('10.4.4.10', 34775) 4481,A,1,0,3,3;www.fake.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa.,braga.lisboa. NS ns2.braga.lisboa.,braga.lisboa. NS ns3.braga.lisboa.;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:38:5:51775 RR ('10.2.2.10', 35077) 4481,A,1,0,3,3;www.fake.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa.,braga.lisboa. NS ns2.braga.lisboa.,braga.lisboa. NS ns3.braga.lisboa.;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:38:5:51832 QE 10.2.2.11:5353 4481,Q,0,0,0,0;www.fake.braga.lisboa.,MX;
+19:1:2023.17:38:5:52097 QR ('10.4.4.10', 34775) b'\x11\x81\x00\x00\x00\x00\x00\x16www.fake.braga.lisboa.\x07'
+19:1:2023.17:38:5:55041 RP ('10.4.4.10', 34775) 4481,A,1,0,3,3;www.fake.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa. 86400,braga.lisboa. NS ns2.braga.lisboa. 86400,braga.lisboa. NS ns3.braga.lisboa. 86400;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:38:5:55346 RR ('10.2.2.11', 47540) 4481,A,1,0,3,3;www.fake.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa. 86400,braga.lisboa. NS ns2.braga.lisboa. 86400,braga.lisboa. NS ns3.braga.lisboa. 86400;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:40:25:506323 ST 10.4.4.10 0
+19:1:2023.17:40:25:506323 ST 10.4.4.10 0
+19:1:2023.17:40:25:506482 EV @ log-file-read ./log/all-log.txt
+19:1:2023.17:40:29:782220 QR ('10.4.4.1', 53117) b'\x10\xa7\x00\x00\x00\x00\x00\x16www.fake.braga.lisboa.\x07'
+19:1:2023.17:40:29:783128 QE 10.2.2.10:5353 4263,Q,0,0,0,0;www.fake.braga.lisboa.,MX;
+19:1:2023.17:40:29:783340 QR ('10.4.4.10', 60848) b'\x10\xa7\x00\x00\x00\x00\x00\x16www.fake.braga.lisboa.\x07'
+19:1:2023.17:40:29:784062 RP ('10.4.4.10', 60848) 4263,A,1,0,3,3;www.fake.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa.,braga.lisboa. NS ns2.braga.lisboa.,braga.lisboa. NS ns3.braga.lisboa.;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:40:29:784321 RR ('10.2.2.10', 52705) 4263,A,1,0,3,3;www.fake.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa.,braga.lisboa. NS ns2.braga.lisboa.,braga.lisboa. NS ns3.braga.lisboa.;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:40:29:784392 QE 10.2.2.11:5353 4263,Q,0,0,0,0;www.fake.braga.lisboa.,MX;
+19:1:2023.17:40:29:784754 QR ('10.4.4.10', 60848) b'\x10\xa7\x00\x00\x00\x00\x00\x16www.fake.braga.lisboa.\x07'
+19:1:2023.17:40:29:785239 RP ('10.4.4.10', 60848) 4263,A,1,0,3,3;www.fake.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa. 86400,braga.lisboa. NS ns2.braga.lisboa. 86400,braga.lisboa. NS ns3.braga.lisboa. 86400;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:40:29:785658 RR ('10.2.2.11', 42319) 4263,A,1,0,3,3;www.fake.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa. 86400,braga.lisboa. NS ns2.braga.lisboa. 86400,braga.lisboa. NS ns3.braga.lisboa. 86400;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:46:58:690385 ST 10.4.4.10 0
+19:1:2023.17:46:58:690385 ST 10.4.4.10 0
+19:1:2023.17:46:58:690574 EV @ log-file-read ./log/all-log.txt
+19:1:2023.17:47:3:290308 QR ('10.4.4.1', 34588) b'\xda\xd1\x00\x00\x00\x00\x00\x16www.fake.braga.lisboa.\x07'
+19:1:2023.17:47:3:290878 QE 10.2.2.10:5353 56017,Q,0,0,0,0;www.fake.braga.lisboa.,MX;
+19:1:2023.17:47:3:292491 QR ('10.4.4.10', 36823) b'\xda\xd1\x00\x00\x00\x00\x00\x16www.fake.braga.lisboa.\x07'
+19:1:2023.17:47:3:293578 RP ('10.4.4.10', 36823) 56017,A,1,0,3,3;www.fake.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa.,braga.lisboa. NS ns2.braga.lisboa.,braga.lisboa. NS ns3.braga.lisboa.;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:47:3:293869 RR ('10.2.2.10', 47519) 56017,A,1,0,3,3;www.fake.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa.,braga.lisboa. NS ns2.braga.lisboa.,braga.lisboa. NS ns3.braga.lisboa.;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:47:3:293942 QE 10.2.2.11:5353 56017,Q,0,0,0,0;www.fake.braga.lisboa.,MX;
+19:1:2023.17:47:3:294175 QR ('10.4.4.10', 36823) b'\xda\xd1\x00\x00\x00\x00\x00\x16www.fake.braga.lisboa.\x07'
+19:1:2023.17:47:3:294829 RP ('10.4.4.10', 36823) 56017,A,1,0,3,3;www.fake.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa. 86400,braga.lisboa. NS ns2.braga.lisboa. 86400,braga.lisboa. NS ns3.braga.lisboa. 86400;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:47:3:294926 RR ('10.2.2.11', 48012) 56017,A,1,0,3,3;www.fake.braga.lisboa.,MX;;braga.lisboa. NS ns1.braga.lisboa. 86400,braga.lisboa. NS ns2.braga.lisboa. 86400,braga.lisboa. NS ns3.braga.lisboa. 86400;ns1.braga.lisboa. A 10.2.2.11 86400,ns2.braga.lisboa. A 10.1.1.10 86400,ns3.braga.lisboa. A 10.3.3.12 86400;
+19:1:2023.17:57:48:99981 ST 10.0.13.10 0
+19:1:2023.17:57:48:99994 EV @ conf-file-read -c
+19:1:2023.17:57:48:100170 EV @ log-file-read ./log/all-log.txt
+19:1:2023.17:57:48:100227 EV @ BD/DNS_DB_porto.txt
+19:1:2023.17:59:36:827739 QR ('10.4.4.1', 34298) b'\xde\xc8\x00\x00\x00\x00\x00\x1c11.13.0.10.inadress.reverse.\n'
+19:1:2023.17:59:36:828682 RP ('10.4.4.1', 34298) 57032,A,2,0,0,0;11.13.0.10.inadress.reverse.,PTR;

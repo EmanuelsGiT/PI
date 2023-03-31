@@ -1,0 +1,8 @@
+# config SP do porto.lisboa.
+porto.lisboa DB ./BD/DNS_DB_porto.txt 
+porto.lisboa SS 10.2.2.12:5353
+#porto.lisboa SS 10.1.1.11:5353
+porto.lisboa DD 127.0.0.1
+porto.lisboa LG ./var/dns/porto-lisboa.txt
+all LG ./log/all-log.txt
+root ST ./BD/DNS_DB_lisboa.txt

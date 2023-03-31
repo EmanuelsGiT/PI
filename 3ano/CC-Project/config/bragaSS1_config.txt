@@ -1,0 +1,6 @@
+# config SS1 do braga.lisboa.
+braga.lisboa SP 10.2.2.11:5353
+braga.lisboa DD 127.0.0.1
+braga.lisboa LG ./var/dns/braga-lisboa.txt
+all LG ./log/all-log.txt
+root ST ./BD/DNS_DB_lisboa.txt
