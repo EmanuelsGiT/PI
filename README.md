@@ -27,7 +27,7 @@
 | - [LI4 (Laboratórios de Informática 4)](https://github.com/EmanuelsGiT/University/tree/main/3ano/SD-Project) |
 | - [SD (Sistemas Distribuídos)](https://github.com/EmanuelsGiT/University/tree/main/3ano/SD-Project) |
 | 2nd Semester |
-| - [ADI (Aprendizagem e Decisão Inteligentes)]() |
-| - [CG (Computação Gráfica)]() |
-| - [EW (Engenharia Web)]() |
-| - [PL (Processamento de Linguagens)]() |
+| - [ADI (Aprendizagem e Decisão Inteligentes)](https://github.com/EmanuelsGiT/University/tree/main/3ano/ADI-Project) |
+| - [CG (Computação Gráfica)](https://github.com/EmanuelsGiT/University/tree/main/3ano/CG-Project) |
+| - [EW (Engenharia Web)](https://github.com/EmanuelsGiT/University/tree/main/3ano/EW-Project) |
+| - [PL (Processamento de Linguagens)](https://github.com/EmanuelsGiT/University/tree/main/3ano/PL-Project) |
