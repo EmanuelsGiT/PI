@@ -1,0 +1,54 @@
+doctype html
+html
+  head
+    title Home/Perfil
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='/stylesheets/w3-black.css')
+    link(rel='stylesheet' href='/stylesheets/w3.css')
+    link(rel='stylesheet' href='/stylesheets/home.css')
+  body
+    .w3-main
+      .w3-top.w3-display-topmiddle
+        .w3-bar.w3-theme.w3-left-align.w3-large.w3-padding-16
+          a.w3-bar-item.w3-button.w3-amber.w3-margin-left(href='/home') Inquirições de Génere
+          a.w3-bar-item.w3-button(href='/home/perfil') Perfil
+          a.w3-bar-item.w3-button(href='/home') Posts
+          a.w3-bar-item.w3-button(href='/home/inquiricoes') Inquirições
+          a.w3-bar-item.w3-button.w3-right(href='/home/logout') Log out
+          a.w3-bar-item.w3-button.w3-right(href='/home/sugestoes') Sugestões
+          if user.level == 'admin'
+            a.w3-bar-item.w3-button.w3-right(href='/home/admin') Administração
+      h5.w3-padding-top-64(style="font-size: 5vmax;") Perfil
+      .w3-content
+          .w3-row
+            .w3-card.w3-round-xlarge.post-box.w3-hover-shadow.w3-panel.w3-padding-16
+                form.w3-padding-bottom-64(action='/home/perfil', method='POST')
+                    p.div(style="font-size: 1vmax;")
+                      strong Nome: 
+                    input.w3-input.w3-bar-item.w3-round-xlarge(name='nome', type='text', placeholder=user.username, readonly)
+                    p.div(style="font-size: 1vmax;")
+                      strong Email: 
+                    input.w3-input.w3-bar-item.w3-round-xlarge(name='email', type='text', placeholder=user.email)
+                    p.div(style="font-size: 1vmax;")
+                      strong Nova password: 
+                    input.w3-input.w3-bar-item.w3-round-xlarge(name='password', type='password', placeholder='password')
+                    p.div(style="font-size: 1vmax;")
+                      strong Filiação: 
+                    input.w3-input.w3-bar-item.w3-round-xlarge(name='filiacao', type='text', placeholder=user.filiacao)
+                    p.div(style="font-size: 1vmax;")
+                      strong Nível: 
+                    input.w3-input.w3-bar-item.w3-round-xlarge(name='nivel', type='text', placeholder=user.level, readonly)
+                    p.div(style="font-size: 1vmax;")
+                      strong Data de Registo: 
+                    input.w3-input.w3-bar-item.w3-round-xlarge(name='dataRegisto', type='text', placeholder=user.dateCreated, readonly)
+                    p.div(style="font-size: 1vmax;")
+                      strong Data do Último Acesso: 
+                    input.w3-input.w3-bar-item.w3-round-xlarge(name='dataUltimo', type='text', placeholder=user.dateLastAccess, readonly)
+                    button.w3-bar-item.w3-green.w3-button.w3-right.w3-margin.w3-round-large(type="submit") Submit
+      .w3-display-bottom
+        footer.w3-center
+          .w3-container.w3-theme-l1
+            p
+              | Project made for 
+              a(href='https://epl.di.uminho.pt/~jcr/AULAS/EngWeb2023/index.html' target='_blank') EngWeb

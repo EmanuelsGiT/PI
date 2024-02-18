@@ -1,0 +1,14 @@
+---
+# Playbook to deploy laravel.io and its components
+
+- name: Deploy MYSQL
+  hosts: localhost
+  roles:
+    - mysql
+
+- name: Deploy Laravel
+  hosts: localhost
+  vars: 
+    seed_database: false
+  roles:
+    - laravel-deploy

@@ -1,0 +1,13 @@
+db:
+  host: "localhost"
+  user: "guilherme"
+  password: "users"
+  dbname: "users"
+  port: 5432
+  tz: "Europe/Lisbon"
+
+app:
+  listen: ":3000"
+  # head /dev/urandom | tr -dc A-Za-z0-0 | openssl dgst -sha256
+  jwt-secret: "10152ac15c5c8ac4bc48cb1dea05b0274e0f64577e6c760ed1f4d0e7730e0ad2"
+  # eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDQ3NTY2NjcsInN1YiI6InBnNTM4NTEifQ.2nhaFg4IK8tM0fsgBeIeJ1fFAOQixgCsnRHUpOxQyAM

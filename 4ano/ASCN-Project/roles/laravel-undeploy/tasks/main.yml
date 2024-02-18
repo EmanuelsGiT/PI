@@ -1,0 +1,87 @@
+---
+#laravel undeployment
+- name: Undeploy MySQL service
+  kubernetes.core.k8s:
+    api_version: v1
+    kind: Service
+    namespace: default
+    name: mysql-service
+    state: absent
+    wait: true
+
+
+- name: Undeploy MySQL Deployment
+  kubernetes.core.k8s:
+    api_version: v1
+    kind: Deployment
+    namespace: default
+    name: mysql-deployment  
+    state: absent
+    wait: true
+
+
+- name:  Undeploy Redis service
+  kubernetes.core.k8s:
+    src: laravel_app/redis-service.yml
+    state: absent
+    wait: true
+
+
+- name:  Undeploy Redis Deployment
+  kubernetes.core.k8s:
+    src: laravel_app/redis-deployment.yml
+    state: absent
+    wait: true
+
+
+- name: Undeploy Laravel service
+  kubernetes.core.k8s:
+    api_version: v1
+    kind: Service
+    namespace: default
+    name: laravel-service
+    state: absent
+    continue_on_error: yes
+    wait: true
+
+
+- name: Undeploy Laravel Deployment
+  kubernetes.core.k8s:
+    api_version: v1
+    kind: Deployment
+    namespace: default
+    name: laravel-deployment
+    state: absent
+    wait: true
+
+#- name: var
+#  shell: echo "{{delete_data}}"
+
+- name: Delete Persistent Data
+  kubernetes.core.k8s:
+    src: mysql/mysql-pvc.yml
+    state: absent
+    wait: true
+  when : delete_data is defined and delete_data == "true"
+
+- name: Delete HorizontalPodAutoscaler
+  kubernetes.core.k8s:
+    src: laravel_app/replication.yml
+    state: absent
+    wait: true
+
+- name: Restore gcp.yml
+  lineinfile:
+    path: inventory/gcp.yml
+    regexp: '^  app_ip:'
+    line: '  app_ip: <APP_SERVICE_IP>'
+
+
+#- name: Delete Persistent Data
+#  kubernetes.core.k8s:
+#    api_version: v1
+#    kind: PersistentVolumeClaim
+#    name: mysql-pv-claim
+#    state: absent
+#    wait: true
+#  when : delete_data is defined and delete_data == "true"

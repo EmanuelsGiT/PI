@@ -1,0 +1,15 @@
+---
+# Service for exposing Redis
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: default
+  labels:
+    app: redis
+spec:
+  selector:
+    app: redis
+  ports:
+    - targetPort: 6379 
+      port: 6379 

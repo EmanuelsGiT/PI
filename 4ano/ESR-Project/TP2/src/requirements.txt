@@ -1,0 +1,4 @@
+Pillow
+PyQt5
+PyQt5-sip
+opencv-python

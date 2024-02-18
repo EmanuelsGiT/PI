@@ -1,0 +1,31 @@
+doctype html
+html
+    head
+        title Admin/Register
+        meta(charset="utf-8")
+        link(rel='stylesheet', href='/stylesheets/css/register.css')
+    body
+        div(class="box-form")
+            div(class="left")
+                div(class="overlay")
+                    h1 Inquirições de Génere
+                    p
+            div(class="right")
+                h5 Register
+                div(class="inputs")
+                    form(action="/register", method="POST")
+                        input(type="text", name="email", placeholder="E-mail")
+                        br
+                        input(type="text", name="username" placeholder="Username")
+                        br
+                        input(type="password", name="password", placeholder="Password")
+                        br
+                        input(type="text", name="filiacao", placeholder="Affiliation")
+                        br
+                        br
+                        select.w3-select.w3-border(type="text", name="level", placeholder="Level")
+                            option(value="admin") Admin
+                            option(value="user") User
+                        br
+                        br
+                        button(type="submit") Register

@@ -1,0 +1,11 @@
+src/auth/node_modules/*
+src/interface/node_modules/*
+src/api/node_modules/*
+PT-UM-ADB-DIO-MAB-006.CSV
+PT-UM-ADB-DIO-MAB-006-alterado.json
+db.json
+new_db.json
+new_db2.json
+inquiricoes.json
+src/posts.json
+src/users.json

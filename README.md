@@ -31,3 +31,21 @@
 | - [CG (Computação Gráfica)](https://github.com/EmanuelsGiT/University/tree/main/3ano/CG-Project) |
 | - [EW (Engenharia Web)](https://github.com/EmanuelsGiT/University/tree/main/3ano/EW-Project) |
 | - [PL (Processamento de Linguagens)](https://github.com/EmanuelsGiT/University/tree/main/3ano/PL-Project) |
+
+| 4th Year |
+| -------- | 
+| 1st Semester |
+| - [ASCN (Aplicações e Serviços de Computação em Nuvem)](https://github.com/EmanuelsGiT/University/tree/main/4ano/ASCN-Project) |
+| - [CPAR (Computação Paralela)](https://github.com/EmanuelsGiT/University/tree/main/4ano/CPAR-Project) |
+| - [DAA (Dados e Aprendizagem Automática)](https://github.com/EmanuelsGiT/University/tree/main/4ano/DAA-Project) |
+| - [ESR (Engenharia de Serviços em Rede)](https://github.com/EmanuelsGiT/University/tree/main/4ano/ESR-Project) |
+| - [RAS (Requistos e Arquiteturas de Software)](https://github.com/EmanuelsGiT/University/tree/main/4ano/RAS-Project) |
+| 2nd Semester |
+| - Engenharia de Aplicações |
+| -- [ADB (Administração de Bases de Dados)](https://github.com/EmanuelsGiT/University/tree/main/4ano/ADB-Project) |
+| -- [AA (Arquiteturas Aplicacionais)](https://github.com/EmanuelsGiT/University/tree/main/4ano/AA-Project) |
+| -- [SIC (Sistemas Interativos Confiáveis)](https://github.com/EmanuelsGiT/University/tree/main/4ano/SIC-Project) |
+| - Sistemas Distribuídos |
+| -- [PSD (Paradigamas de Sistemas Distribuídos)](https://github.com/EmanuelsGiT/University/tree/main/4ano/PSD-Project) |
+| -- [SDGE (Sistemas Distribuídos em Grande Escala)](https://github.com/EmanuelsGiT/University/tree/main/4ano/SDGE-Project) |
+| -- [TF (Tolerância a Faltas)](https://github.com/EmanuelsGiT/University/tree/main/4ano/TF-Project) |

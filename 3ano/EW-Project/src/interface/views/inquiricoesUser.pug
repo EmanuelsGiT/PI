@@ -1,0 +1,74 @@
+doctype html
+html
+  head
+    title Home/Inquiricoes
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='/stylesheets/w3-black.css')
+    link(rel='stylesheet' href='/stylesheets/w3.css')
+    link(rel='stylesheet' href='/stylesheets/home.css')
+  body
+    .w3-main
+      .w3-top.w3-display-topmiddle
+        .w3-bar.w3-theme.w3-left-align.w3-large.w3-padding-16
+          a.w3-bar-item.w3-button.w3-amber.w3-margin-left(href='/home') Inquirições de Génere
+          a.w3-bar-item.w3-button(href='/home/perfil') Perfil
+          a.w3-bar-item.w3-button(href='/home') Posts
+          a.w3-bar-item.w3-button(href='/home/inquiricoes') Inquirições
+          a.w3-bar-item.w3-button.w3-right(href='/home/logout') Log out
+          a.w3-bar-item.w3-button.w3-right(href='/home/sugestoes') Sugestões
+          if user.level == 'admin'
+            a.w3-bar-item.w3-button.w3-right(href='/home/admin') Administração
+          form.w3-center(action='/home/inquiricoes' style='margin-top: 2px')
+            select.w3-select.w3-bar-item.w3-theme.w3-margin-right(name='searchType')
+              option(value='nome') Nome
+              option(value='lugar') Lugar
+              option(value='data') Data
+            input.w3-input.w3-bar-item.w3-round-xlarge(name='search', type='text', placeholder='Search')
+            button.w3-bar-item.w3-theme.w3-button(type="submit") Search
+      if error
+        h5.w3-padding-top-64(style="font-size: 5vmax;") Inquirições Not Found
+      else
+        h5.w3-padding-top-64(style="font-size: 5vmax;") Inquirições
+        .w3-content
+          each inquiricao in inquiricoes
+            .w3-row
+              a(href="/home/inquiricao/" + inquiricao._id, style="text-decoration: none;")
+                .w3-card.w3-round-xlarge.w3-hover-shadow.post-box
+                  .w3-margin.div(style="font-size: 0.9vmax;")
+                    h5.w3-topleft(style="font-size: 1.5vmax; font-weight:bold") #{inquiricao.UnitTitle} 
+                      span.w3-right #{inquiricao.UnitId}
+                    p
+                      span Record: 
+                      span
+                        | #{inquiricao.CompleteUnitId}
+        
+        if inquiricoes.length < 7
+          .w3-bottom
+            .pagination.post-box
+              if searcht
+                a(href=`?page=${prevIndex}&searchType=${searcht}&search=${search}`, class=(prevIndex ? '' : 'disabled')) Previous
+                a(href=`?page=${nextIndex}&searchType=${searcht}&search=${search}`, class=(nextIndex ? '' : 'disabled')) Next
+              else
+                a(href=`?page=${prevIndex}`, class=(prevIndex ? '' : 'disabled')) Previous
+                a(href=`?page=${nextIndex}`, class=(nextIndex ? '' : 'disabled')) Next
+            footer.w3-center
+              .w3-container.w3-theme-l1
+                p
+                  | Project made for 
+                  a(href='https://epl.di.uminho.pt/~jcr/AULAS/EngWeb2023/index.html' target='_blank') EngWeb
+
+        else
+          .w3-display-bottom
+            .pagination.post-box
+              if searcht
+                a(href=`?page=${prevIndex}&searchType=${searcht}&search=${search}`, class=(prevIndex ? '' : 'disabled')) Previous
+                a(href=`?page=${nextIndex}&searchType=${searcht}&search=${search}`, class=(nextIndex ? '' : 'disabled')) Next
+              else
+                a(href=`?page=${prevIndex}`, class=(prevIndex ? '' : 'disabled')) Previous
+                a(href=`?page=${nextIndex}`, class=(nextIndex ? '' : 'disabled')) Next
+            footer.w3-center
+              .w3-container.w3-theme-l1
+                p
+                  | Project made for 
+                  a(href='https://epl.di.uminho.pt/~jcr/AULAS/EngWeb2023/index.html' target='_blank') EngWeb

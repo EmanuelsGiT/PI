@@ -1,0 +1,853 @@
+Created by PLY (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> Toml
+Rule 1     Toml -> Tables
+Rule 2     Toml -> Attributes
+Rule 3     Toml -> Attributes Tables
+Rule 4     Tables -> Table
+Rule 5     Tables -> Tables Table
+Rule 6     Tables -> Array_Tables
+Rule 7     Tables -> Tables Array_Tables
+Rule 8     Table -> TABLE
+Rule 9     Table -> TABLE Attributes
+Rule 10    Array_Tables -> ARRAY_TABLES
+Rule 11    Array_Tables -> ARRAY_TABLES Attributes
+Rule 12    Attributes -> Attribute
+Rule 13    Attributes -> Attribute Attributes
+Rule 14    Attribute -> NAME EQUALS Value
+Rule 15    Attribute -> STRING EQUALS Value
+Rule 16    Array -> LEFT_BRACKET RIGHT_BRACKET
+Rule 17    Array -> LEFT_BRACKET Array_Values RIGHT_BRACKET
+Rule 18    Array_Values -> Value
+Rule 19    Array_Values -> Array_Values COMMA Value
+Rule 20    Dict -> LEFT_CURLY RIGHT_CURLY
+Rule 21    Dict -> LEFT_CURLY Dict_Values RIGHT_CURLY
+Rule 22    Dict_Values -> Attribute
+Rule 23    Dict_Values -> Dict_Values COMMA Attribute
+Rule 24    Value -> Array
+Rule 25    Value -> Dict
+Rule 26    Value -> OFFSET_DATE_TIME
+Rule 27    Value -> LOCAL_DATE_TIME
+Rule 28    Value -> LOCAL_DATE
+Rule 29    Value -> LOCAL_TIME
+Rule 30    Value -> DECIMAL
+Rule 31    Value -> EXPONENT
+Rule 32    Value -> OCTA
+Rule 33    Value -> HEXA
+Rule 34    Value -> BIN
+Rule 35    Value -> INTEGER
+Rule 36    Value -> BOOLEAN
+Rule 37    Value -> STRING_BIG
+Rule 38    Value -> STRING
+
+Terminals, with rules where they appear
+
+ARRAY_TABLES         : 10 11
+BIN                  : 34
+BOOLEAN              : 36
+COMMA                : 19 23
+DECIMAL              : 30
+EQUALS               : 14 15
+EXPONENT             : 31
+HEXA                 : 33
+INTEGER              : 35
+LEFT_BRACKET         : 16 17
+LEFT_CURLY           : 20 21
+LOCAL_DATE           : 28
+LOCAL_DATE_TIME      : 27
+LOCAL_TIME           : 29
+NAME                 : 14
+OCTA                 : 32
+OFFSET_DATE_TIME     : 26
+RIGHT_BRACKET        : 16 17
+RIGHT_CURLY          : 20 21
+STRING               : 15 38
+STRING_BIG           : 37
+TABLE                : 8 9
+error                : 
+
+Nonterminals, with rules where they appear
+
+Array                : 24
+Array_Tables         : 6 7
+Array_Values         : 17 19
+Attribute            : 12 13 22 23
+Attributes           : 2 3 9 11 13
+Dict                 : 25
+Dict_Values          : 21 23
+Table                : 4 5
+Tables               : 1 3 5 7
+Toml                 : 0
+Value                : 14 15 18 19
+
+
+state 0
+
+    (0) S' -> . Toml
+    (1) Toml -> . Tables
+    (2) Toml -> . Attributes
+    (3) Toml -> . Attributes Tables
+    (4) Tables -> . Table
+    (5) Tables -> . Tables Table
+    (6) Tables -> . Array_Tables
+    (7) Tables -> . Tables Array_Tables
+    (12) Attributes -> . Attribute
+    (13) Attributes -> . Attribute Attributes
+    (8) Table -> . TABLE
+    (9) Table -> . TABLE Attributes
+    (10) Array_Tables -> . ARRAY_TABLES
+    (11) Array_Tables -> . ARRAY_TABLES Attributes
+    (14) Attribute -> . NAME EQUALS Value
+    (15) Attribute -> . STRING EQUALS Value
+
+    TABLE           shift and go to state 7
+    ARRAY_TABLES    shift and go to state 8
+    NAME            shift and go to state 9
+    STRING          shift and go to state 10
+
+    Toml                           shift and go to state 1
+    Tables                         shift and go to state 2
+    Attributes                     shift and go to state 3
+    Table                          shift and go to state 4
+    Array_Tables                   shift and go to state 5
+    Attribute                      shift and go to state 6
+
+state 1
+
+    (0) S' -> Toml .
+
+
+
+state 2
+
+    (1) Toml -> Tables .
+    (5) Tables -> Tables . Table
+    (7) Tables -> Tables . Array_Tables
+    (8) Table -> . TABLE
+    (9) Table -> . TABLE Attributes
+    (10) Array_Tables -> . ARRAY_TABLES
+    (11) Array_Tables -> . ARRAY_TABLES Attributes
+
+    $end            reduce using rule 1 (Toml -> Tables .)
+    TABLE           shift and go to state 7
+    ARRAY_TABLES    shift and go to state 8
+
+    Table                          shift and go to state 11
+    Array_Tables                   shift and go to state 12
+
+state 3
+
+    (2) Toml -> Attributes .
+    (3) Toml -> Attributes . Tables
+    (4) Tables -> . Table
+    (5) Tables -> . Tables Table
+    (6) Tables -> . Array_Tables
+    (7) Tables -> . Tables Array_Tables
+    (8) Table -> . TABLE
+    (9) Table -> . TABLE Attributes
+    (10) Array_Tables -> . ARRAY_TABLES
+    (11) Array_Tables -> . ARRAY_TABLES Attributes
+
+    $end            reduce using rule 2 (Toml -> Attributes .)
+    TABLE           shift and go to state 7
+    ARRAY_TABLES    shift and go to state 8
+
+    Tables                         shift and go to state 13
+    Table                          shift and go to state 4
+    Array_Tables                   shift and go to state 5
+
+state 4
+
+    (4) Tables -> Table .
+
+    TABLE           reduce using rule 4 (Tables -> Table .)
+    ARRAY_TABLES    reduce using rule 4 (Tables -> Table .)
+    $end            reduce using rule 4 (Tables -> Table .)
+
+
+state 5
+
+    (6) Tables -> Array_Tables .
+
+    TABLE           reduce using rule 6 (Tables -> Array_Tables .)
+    ARRAY_TABLES    reduce using rule 6 (Tables -> Array_Tables .)
+    $end            reduce using rule 6 (Tables -> Array_Tables .)
+
+
+state 6
+
+    (12) Attributes -> Attribute .
+    (13) Attributes -> Attribute . Attributes
+    (12) Attributes -> . Attribute
+    (13) Attributes -> . Attribute Attributes
+    (14) Attribute -> . NAME EQUALS Value
+    (15) Attribute -> . STRING EQUALS Value
+
+    TABLE           reduce using rule 12 (Attributes -> Attribute .)
+    ARRAY_TABLES    reduce using rule 12 (Attributes -> Attribute .)
+    $end            reduce using rule 12 (Attributes -> Attribute .)
+    NAME            shift and go to state 9
+    STRING          shift and go to state 10
+
+    Attribute                      shift and go to state 6
+    Attributes                     shift and go to state 14
+
+state 7
+
+    (8) Table -> TABLE .
+    (9) Table -> TABLE . Attributes
+    (12) Attributes -> . Attribute
+    (13) Attributes -> . Attribute Attributes
+    (14) Attribute -> . NAME EQUALS Value
+    (15) Attribute -> . STRING EQUALS Value
+
+    TABLE           reduce using rule 8 (Table -> TABLE .)
+    ARRAY_TABLES    reduce using rule 8 (Table -> TABLE .)
+    $end            reduce using rule 8 (Table -> TABLE .)
+    NAME            shift and go to state 9
+    STRING          shift and go to state 10
+
+    Attributes                     shift and go to state 15
+    Attribute                      shift and go to state 6
+
+state 8
+
+    (10) Array_Tables -> ARRAY_TABLES .
+    (11) Array_Tables -> ARRAY_TABLES . Attributes
+    (12) Attributes -> . Attribute
+    (13) Attributes -> . Attribute Attributes
+    (14) Attribute -> . NAME EQUALS Value
+    (15) Attribute -> . STRING EQUALS Value
+
+    TABLE           reduce using rule 10 (Array_Tables -> ARRAY_TABLES .)
+    ARRAY_TABLES    reduce using rule 10 (Array_Tables -> ARRAY_TABLES .)
+    $end            reduce using rule 10 (Array_Tables -> ARRAY_TABLES .)
+    NAME            shift and go to state 9
+    STRING          shift and go to state 10
+
+    Attributes                     shift and go to state 16
+    Attribute                      shift and go to state 6
+
+state 9
+
+    (14) Attribute -> NAME . EQUALS Value
+
+    EQUALS          shift and go to state 17
+
+
+state 10
+
+    (15) Attribute -> STRING . EQUALS Value
+
+    EQUALS          shift and go to state 18
+
+
+state 11
+
+    (5) Tables -> Tables Table .
+
+    TABLE           reduce using rule 5 (Tables -> Tables Table .)
+    ARRAY_TABLES    reduce using rule 5 (Tables -> Tables Table .)
+    $end            reduce using rule 5 (Tables -> Tables Table .)
+
+
+state 12
+
+    (7) Tables -> Tables Array_Tables .
+
+    TABLE           reduce using rule 7 (Tables -> Tables Array_Tables .)
+    ARRAY_TABLES    reduce using rule 7 (Tables -> Tables Array_Tables .)
+    $end            reduce using rule 7 (Tables -> Tables Array_Tables .)
+
+
+state 13
+
+    (3) Toml -> Attributes Tables .
+    (5) Tables -> Tables . Table
+    (7) Tables -> Tables . Array_Tables
+    (8) Table -> . TABLE
+    (9) Table -> . TABLE Attributes
+    (10) Array_Tables -> . ARRAY_TABLES
+    (11) Array_Tables -> . ARRAY_TABLES Attributes
+
+    $end            reduce using rule 3 (Toml -> Attributes Tables .)
+    TABLE           shift and go to state 7
+    ARRAY_TABLES    shift and go to state 8
+
+    Table                          shift and go to state 11
+    Array_Tables                   shift and go to state 12
+
+state 14
+
+    (13) Attributes -> Attribute Attributes .
+
+    TABLE           reduce using rule 13 (Attributes -> Attribute Attributes .)
+    ARRAY_TABLES    reduce using rule 13 (Attributes -> Attribute Attributes .)
+    $end            reduce using rule 13 (Attributes -> Attribute Attributes .)
+
+
+state 15
+
+    (9) Table -> TABLE Attributes .
+
+    TABLE           reduce using rule 9 (Table -> TABLE Attributes .)
+    ARRAY_TABLES    reduce using rule 9 (Table -> TABLE Attributes .)
+    $end            reduce using rule 9 (Table -> TABLE Attributes .)
+
+
+state 16
+
+    (11) Array_Tables -> ARRAY_TABLES Attributes .
+
+    TABLE           reduce using rule 11 (Array_Tables -> ARRAY_TABLES Attributes .)
+    ARRAY_TABLES    reduce using rule 11 (Array_Tables -> ARRAY_TABLES Attributes .)
+    $end            reduce using rule 11 (Array_Tables -> ARRAY_TABLES Attributes .)
+
+
+state 17
+
+    (14) Attribute -> NAME EQUALS . Value
+    (24) Value -> . Array
+    (25) Value -> . Dict
+    (26) Value -> . OFFSET_DATE_TIME
+    (27) Value -> . LOCAL_DATE_TIME
+    (28) Value -> . LOCAL_DATE
+    (29) Value -> . LOCAL_TIME
+    (30) Value -> . DECIMAL
+    (31) Value -> . EXPONENT
+    (32) Value -> . OCTA
+    (33) Value -> . HEXA
+    (34) Value -> . BIN
+    (35) Value -> . INTEGER
+    (36) Value -> . BOOLEAN
+    (37) Value -> . STRING_BIG
+    (38) Value -> . STRING
+    (16) Array -> . LEFT_BRACKET RIGHT_BRACKET
+    (17) Array -> . LEFT_BRACKET Array_Values RIGHT_BRACKET
+    (20) Dict -> . LEFT_CURLY RIGHT_CURLY
+    (21) Dict -> . LEFT_CURLY Dict_Values RIGHT_CURLY
+
+    OFFSET_DATE_TIME shift and go to state 22
+    LOCAL_DATE_TIME shift and go to state 23
+    LOCAL_DATE      shift and go to state 24
+    LOCAL_TIME      shift and go to state 25
+    DECIMAL         shift and go to state 26
+    EXPONENT        shift and go to state 27
+    OCTA            shift and go to state 28
+    HEXA            shift and go to state 29
+    BIN             shift and go to state 30
+    INTEGER         shift and go to state 31
+    BOOLEAN         shift and go to state 32
+    STRING_BIG      shift and go to state 33
+    STRING          shift and go to state 34
+    LEFT_BRACKET    shift and go to state 35
+    LEFT_CURLY      shift and go to state 36
+
+    Value                          shift and go to state 19
+    Array                          shift and go to state 20
+    Dict                           shift and go to state 21
+
+state 18
+
+    (15) Attribute -> STRING EQUALS . Value
+    (24) Value -> . Array
+    (25) Value -> . Dict
+    (26) Value -> . OFFSET_DATE_TIME
+    (27) Value -> . LOCAL_DATE_TIME
+    (28) Value -> . LOCAL_DATE
+    (29) Value -> . LOCAL_TIME
+    (30) Value -> . DECIMAL
+    (31) Value -> . EXPONENT
+    (32) Value -> . OCTA
+    (33) Value -> . HEXA
+    (34) Value -> . BIN
+    (35) Value -> . INTEGER
+    (36) Value -> . BOOLEAN
+    (37) Value -> . STRING_BIG
+    (38) Value -> . STRING
+    (16) Array -> . LEFT_BRACKET RIGHT_BRACKET
+    (17) Array -> . LEFT_BRACKET Array_Values RIGHT_BRACKET
+    (20) Dict -> . LEFT_CURLY RIGHT_CURLY
+    (21) Dict -> . LEFT_CURLY Dict_Values RIGHT_CURLY
+
+    OFFSET_DATE_TIME shift and go to state 22
+    LOCAL_DATE_TIME shift and go to state 23
+    LOCAL_DATE      shift and go to state 24
+    LOCAL_TIME      shift and go to state 25
+    DECIMAL         shift and go to state 26
+    EXPONENT        shift and go to state 27
+    OCTA            shift and go to state 28
+    HEXA            shift and go to state 29
+    BIN             shift and go to state 30
+    INTEGER         shift and go to state 31
+    BOOLEAN         shift and go to state 32
+    STRING_BIG      shift and go to state 33
+    STRING          shift and go to state 34
+    LEFT_BRACKET    shift and go to state 35
+    LEFT_CURLY      shift and go to state 36
+
+    Value                          shift and go to state 37
+    Array                          shift and go to state 20
+    Dict                           shift and go to state 21
+
+state 19
+
+    (14) Attribute -> NAME EQUALS Value .
+
+    NAME            reduce using rule 14 (Attribute -> NAME EQUALS Value .)
+    STRING          reduce using rule 14 (Attribute -> NAME EQUALS Value .)
+    TABLE           reduce using rule 14 (Attribute -> NAME EQUALS Value .)
+    ARRAY_TABLES    reduce using rule 14 (Attribute -> NAME EQUALS Value .)
+    $end            reduce using rule 14 (Attribute -> NAME EQUALS Value .)
+    RIGHT_CURLY     reduce using rule 14 (Attribute -> NAME EQUALS Value .)
+    COMMA           reduce using rule 14 (Attribute -> NAME EQUALS Value .)
+
+
+state 20
+
+    (24) Value -> Array .
+
+    NAME            reduce using rule 24 (Value -> Array .)
+    STRING          reduce using rule 24 (Value -> Array .)
+    TABLE           reduce using rule 24 (Value -> Array .)
+    ARRAY_TABLES    reduce using rule 24 (Value -> Array .)
+    $end            reduce using rule 24 (Value -> Array .)
+    RIGHT_CURLY     reduce using rule 24 (Value -> Array .)
+    COMMA           reduce using rule 24 (Value -> Array .)
+    RIGHT_BRACKET   reduce using rule 24 (Value -> Array .)
+
+
+state 21
+
+    (25) Value -> Dict .
+
+    NAME            reduce using rule 25 (Value -> Dict .)
+    STRING          reduce using rule 25 (Value -> Dict .)
+    TABLE           reduce using rule 25 (Value -> Dict .)
+    ARRAY_TABLES    reduce using rule 25 (Value -> Dict .)
+    $end            reduce using rule 25 (Value -> Dict .)
+    RIGHT_CURLY     reduce using rule 25 (Value -> Dict .)
+    COMMA           reduce using rule 25 (Value -> Dict .)
+    RIGHT_BRACKET   reduce using rule 25 (Value -> Dict .)
+
+
+state 22
+
+    (26) Value -> OFFSET_DATE_TIME .
+
+    NAME            reduce using rule 26 (Value -> OFFSET_DATE_TIME .)
+    STRING          reduce using rule 26 (Value -> OFFSET_DATE_TIME .)
+    TABLE           reduce using rule 26 (Value -> OFFSET_DATE_TIME .)
+    ARRAY_TABLES    reduce using rule 26 (Value -> OFFSET_DATE_TIME .)
+    $end            reduce using rule 26 (Value -> OFFSET_DATE_TIME .)
+    RIGHT_CURLY     reduce using rule 26 (Value -> OFFSET_DATE_TIME .)
+    COMMA           reduce using rule 26 (Value -> OFFSET_DATE_TIME .)
+    RIGHT_BRACKET   reduce using rule 26 (Value -> OFFSET_DATE_TIME .)
+
+
+state 23
+
+    (27) Value -> LOCAL_DATE_TIME .
+
+    NAME            reduce using rule 27 (Value -> LOCAL_DATE_TIME .)
+    STRING          reduce using rule 27 (Value -> LOCAL_DATE_TIME .)
+    TABLE           reduce using rule 27 (Value -> LOCAL_DATE_TIME .)
+    ARRAY_TABLES    reduce using rule 27 (Value -> LOCAL_DATE_TIME .)
+    $end            reduce using rule 27 (Value -> LOCAL_DATE_TIME .)
+    RIGHT_CURLY     reduce using rule 27 (Value -> LOCAL_DATE_TIME .)
+    COMMA           reduce using rule 27 (Value -> LOCAL_DATE_TIME .)
+    RIGHT_BRACKET   reduce using rule 27 (Value -> LOCAL_DATE_TIME .)
+
+
+state 24
+
+    (28) Value -> LOCAL_DATE .
+
+    NAME            reduce using rule 28 (Value -> LOCAL_DATE .)
+    STRING          reduce using rule 28 (Value -> LOCAL_DATE .)
+    TABLE           reduce using rule 28 (Value -> LOCAL_DATE .)
+    ARRAY_TABLES    reduce using rule 28 (Value -> LOCAL_DATE .)
+    $end            reduce using rule 28 (Value -> LOCAL_DATE .)
+    RIGHT_CURLY     reduce using rule 28 (Value -> LOCAL_DATE .)
+    COMMA           reduce using rule 28 (Value -> LOCAL_DATE .)
+    RIGHT_BRACKET   reduce using rule 28 (Value -> LOCAL_DATE .)
+
+
+state 25
+
+    (29) Value -> LOCAL_TIME .
+
+    NAME            reduce using rule 29 (Value -> LOCAL_TIME .)
+    STRING          reduce using rule 29 (Value -> LOCAL_TIME .)
+    TABLE           reduce using rule 29 (Value -> LOCAL_TIME .)
+    ARRAY_TABLES    reduce using rule 29 (Value -> LOCAL_TIME .)
+    $end            reduce using rule 29 (Value -> LOCAL_TIME .)
+    RIGHT_CURLY     reduce using rule 29 (Value -> LOCAL_TIME .)
+    COMMA           reduce using rule 29 (Value -> LOCAL_TIME .)
+    RIGHT_BRACKET   reduce using rule 29 (Value -> LOCAL_TIME .)
+
+
+state 26
+
+    (30) Value -> DECIMAL .
+
+    NAME            reduce using rule 30 (Value -> DECIMAL .)
+    STRING          reduce using rule 30 (Value -> DECIMAL .)
+    TABLE           reduce using rule 30 (Value -> DECIMAL .)
+    ARRAY_TABLES    reduce using rule 30 (Value -> DECIMAL .)
+    $end            reduce using rule 30 (Value -> DECIMAL .)
+    RIGHT_CURLY     reduce using rule 30 (Value -> DECIMAL .)
+    COMMA           reduce using rule 30 (Value -> DECIMAL .)
+    RIGHT_BRACKET   reduce using rule 30 (Value -> DECIMAL .)
+
+
+state 27
+
+    (31) Value -> EXPONENT .
+
+    NAME            reduce using rule 31 (Value -> EXPONENT .)
+    STRING          reduce using rule 31 (Value -> EXPONENT .)
+    TABLE           reduce using rule 31 (Value -> EXPONENT .)
+    ARRAY_TABLES    reduce using rule 31 (Value -> EXPONENT .)
+    $end            reduce using rule 31 (Value -> EXPONENT .)
+    RIGHT_CURLY     reduce using rule 31 (Value -> EXPONENT .)
+    COMMA           reduce using rule 31 (Value -> EXPONENT .)
+    RIGHT_BRACKET   reduce using rule 31 (Value -> EXPONENT .)
+
+
+state 28
+
+    (32) Value -> OCTA .
+
+    NAME            reduce using rule 32 (Value -> OCTA .)
+    STRING          reduce using rule 32 (Value -> OCTA .)
+    TABLE           reduce using rule 32 (Value -> OCTA .)
+    ARRAY_TABLES    reduce using rule 32 (Value -> OCTA .)
+    $end            reduce using rule 32 (Value -> OCTA .)
+    RIGHT_CURLY     reduce using rule 32 (Value -> OCTA .)
+    COMMA           reduce using rule 32 (Value -> OCTA .)
+    RIGHT_BRACKET   reduce using rule 32 (Value -> OCTA .)
+
+
+state 29
+
+    (33) Value -> HEXA .
+
+    NAME            reduce using rule 33 (Value -> HEXA .)
+    STRING          reduce using rule 33 (Value -> HEXA .)
+    TABLE           reduce using rule 33 (Value -> HEXA .)
+    ARRAY_TABLES    reduce using rule 33 (Value -> HEXA .)
+    $end            reduce using rule 33 (Value -> HEXA .)
+    RIGHT_CURLY     reduce using rule 33 (Value -> HEXA .)
+    COMMA           reduce using rule 33 (Value -> HEXA .)
+    RIGHT_BRACKET   reduce using rule 33 (Value -> HEXA .)
+
+
+state 30
+
+    (34) Value -> BIN .
+
+    NAME            reduce using rule 34 (Value -> BIN .)
+    STRING          reduce using rule 34 (Value -> BIN .)
+    TABLE           reduce using rule 34 (Value -> BIN .)
+    ARRAY_TABLES    reduce using rule 34 (Value -> BIN .)
+    $end            reduce using rule 34 (Value -> BIN .)
+    RIGHT_CURLY     reduce using rule 34 (Value -> BIN .)
+    COMMA           reduce using rule 34 (Value -> BIN .)
+    RIGHT_BRACKET   reduce using rule 34 (Value -> BIN .)
+
+
+state 31
+
+    (35) Value -> INTEGER .
+
+    NAME            reduce using rule 35 (Value -> INTEGER .)
+    STRING          reduce using rule 35 (Value -> INTEGER .)
+    TABLE           reduce using rule 35 (Value -> INTEGER .)
+    ARRAY_TABLES    reduce using rule 35 (Value -> INTEGER .)
+    $end            reduce using rule 35 (Value -> INTEGER .)
+    RIGHT_CURLY     reduce using rule 35 (Value -> INTEGER .)
+    COMMA           reduce using rule 35 (Value -> INTEGER .)
+    RIGHT_BRACKET   reduce using rule 35 (Value -> INTEGER .)
+
+
+state 32
+
+    (36) Value -> BOOLEAN .
+
+    NAME            reduce using rule 36 (Value -> BOOLEAN .)
+    STRING          reduce using rule 36 (Value -> BOOLEAN .)
+    TABLE           reduce using rule 36 (Value -> BOOLEAN .)
+    ARRAY_TABLES    reduce using rule 36 (Value -> BOOLEAN .)
+    $end            reduce using rule 36 (Value -> BOOLEAN .)
+    RIGHT_CURLY     reduce using rule 36 (Value -> BOOLEAN .)
+    COMMA           reduce using rule 36 (Value -> BOOLEAN .)
+    RIGHT_BRACKET   reduce using rule 36 (Value -> BOOLEAN .)
+
+
+state 33
+
+    (37) Value -> STRING_BIG .
+
+    NAME            reduce using rule 37 (Value -> STRING_BIG .)
+    STRING          reduce using rule 37 (Value -> STRING_BIG .)
+    TABLE           reduce using rule 37 (Value -> STRING_BIG .)
+    ARRAY_TABLES    reduce using rule 37 (Value -> STRING_BIG .)
+    $end            reduce using rule 37 (Value -> STRING_BIG .)
+    RIGHT_CURLY     reduce using rule 37 (Value -> STRING_BIG .)
+    COMMA           reduce using rule 37 (Value -> STRING_BIG .)
+    RIGHT_BRACKET   reduce using rule 37 (Value -> STRING_BIG .)
+
+
+state 34
+
+    (38) Value -> STRING .
+
+    NAME            reduce using rule 38 (Value -> STRING .)
+    STRING          reduce using rule 38 (Value -> STRING .)
+    TABLE           reduce using rule 38 (Value -> STRING .)
+    ARRAY_TABLES    reduce using rule 38 (Value -> STRING .)
+    $end            reduce using rule 38 (Value -> STRING .)
+    RIGHT_CURLY     reduce using rule 38 (Value -> STRING .)
+    COMMA           reduce using rule 38 (Value -> STRING .)
+    RIGHT_BRACKET   reduce using rule 38 (Value -> STRING .)
+
+
+state 35
+
+    (16) Array -> LEFT_BRACKET . RIGHT_BRACKET
+    (17) Array -> LEFT_BRACKET . Array_Values RIGHT_BRACKET
+    (18) Array_Values -> . Value
+    (19) Array_Values -> . Array_Values COMMA Value
+    (24) Value -> . Array
+    (25) Value -> . Dict
+    (26) Value -> . OFFSET_DATE_TIME
+    (27) Value -> . LOCAL_DATE_TIME
+    (28) Value -> . LOCAL_DATE
+    (29) Value -> . LOCAL_TIME
+    (30) Value -> . DECIMAL
+    (31) Value -> . EXPONENT
+    (32) Value -> . OCTA
+    (33) Value -> . HEXA
+    (34) Value -> . BIN
+    (35) Value -> . INTEGER
+    (36) Value -> . BOOLEAN
+    (37) Value -> . STRING_BIG
+    (38) Value -> . STRING
+    (16) Array -> . LEFT_BRACKET RIGHT_BRACKET
+    (17) Array -> . LEFT_BRACKET Array_Values RIGHT_BRACKET
+    (20) Dict -> . LEFT_CURLY RIGHT_CURLY
+    (21) Dict -> . LEFT_CURLY Dict_Values RIGHT_CURLY
+
+    RIGHT_BRACKET   shift and go to state 38
+    OFFSET_DATE_TIME shift and go to state 22
+    LOCAL_DATE_TIME shift and go to state 23
+    LOCAL_DATE      shift and go to state 24
+    LOCAL_TIME      shift and go to state 25
+    DECIMAL         shift and go to state 26
+    EXPONENT        shift and go to state 27
+    OCTA            shift and go to state 28
+    HEXA            shift and go to state 29
+    BIN             shift and go to state 30
+    INTEGER         shift and go to state 31
+    BOOLEAN         shift and go to state 32
+    STRING_BIG      shift and go to state 33
+    STRING          shift and go to state 34
+    LEFT_BRACKET    shift and go to state 35
+    LEFT_CURLY      shift and go to state 36
+
+    Array_Values                   shift and go to state 39
+    Value                          shift and go to state 40
+    Array                          shift and go to state 20
+    Dict                           shift and go to state 21
+
+state 36
+
+    (20) Dict -> LEFT_CURLY . RIGHT_CURLY
+    (21) Dict -> LEFT_CURLY . Dict_Values RIGHT_CURLY
+    (22) Dict_Values -> . Attribute
+    (23) Dict_Values -> . Dict_Values COMMA Attribute
+    (14) Attribute -> . NAME EQUALS Value
+    (15) Attribute -> . STRING EQUALS Value
+
+    RIGHT_CURLY     shift and go to state 41
+    NAME            shift and go to state 9
+    STRING          shift and go to state 10
+
+    Dict_Values                    shift and go to state 42
+    Attribute                      shift and go to state 43
+
+state 37
+
+    (15) Attribute -> STRING EQUALS Value .
+
+    NAME            reduce using rule 15 (Attribute -> STRING EQUALS Value .)
+    STRING          reduce using rule 15 (Attribute -> STRING EQUALS Value .)
+    TABLE           reduce using rule 15 (Attribute -> STRING EQUALS Value .)
+    ARRAY_TABLES    reduce using rule 15 (Attribute -> STRING EQUALS Value .)
+    $end            reduce using rule 15 (Attribute -> STRING EQUALS Value .)
+    RIGHT_CURLY     reduce using rule 15 (Attribute -> STRING EQUALS Value .)
+    COMMA           reduce using rule 15 (Attribute -> STRING EQUALS Value .)
+
+
+state 38
+
+    (16) Array -> LEFT_BRACKET RIGHT_BRACKET .
+
+    NAME            reduce using rule 16 (Array -> LEFT_BRACKET RIGHT_BRACKET .)
+    STRING          reduce using rule 16 (Array -> LEFT_BRACKET RIGHT_BRACKET .)
+    TABLE           reduce using rule 16 (Array -> LEFT_BRACKET RIGHT_BRACKET .)
+    ARRAY_TABLES    reduce using rule 16 (Array -> LEFT_BRACKET RIGHT_BRACKET .)
+    $end            reduce using rule 16 (Array -> LEFT_BRACKET RIGHT_BRACKET .)
+    RIGHT_CURLY     reduce using rule 16 (Array -> LEFT_BRACKET RIGHT_BRACKET .)
+    COMMA           reduce using rule 16 (Array -> LEFT_BRACKET RIGHT_BRACKET .)
+    RIGHT_BRACKET   reduce using rule 16 (Array -> LEFT_BRACKET RIGHT_BRACKET .)
+
+
+state 39
+
+    (17) Array -> LEFT_BRACKET Array_Values . RIGHT_BRACKET
+    (19) Array_Values -> Array_Values . COMMA Value
+
+    RIGHT_BRACKET   shift and go to state 44
+    COMMA           shift and go to state 45
+
+
+state 40
+
+    (18) Array_Values -> Value .
+
+    RIGHT_BRACKET   reduce using rule 18 (Array_Values -> Value .)
+    COMMA           reduce using rule 18 (Array_Values -> Value .)
+
+
+state 41
+
+    (20) Dict -> LEFT_CURLY RIGHT_CURLY .
+
+    NAME            reduce using rule 20 (Dict -> LEFT_CURLY RIGHT_CURLY .)
+    STRING          reduce using rule 20 (Dict -> LEFT_CURLY RIGHT_CURLY .)
+    TABLE           reduce using rule 20 (Dict -> LEFT_CURLY RIGHT_CURLY .)
+    ARRAY_TABLES    reduce using rule 20 (Dict -> LEFT_CURLY RIGHT_CURLY .)
+    $end            reduce using rule 20 (Dict -> LEFT_CURLY RIGHT_CURLY .)
+    RIGHT_CURLY     reduce using rule 20 (Dict -> LEFT_CURLY RIGHT_CURLY .)
+    COMMA           reduce using rule 20 (Dict -> LEFT_CURLY RIGHT_CURLY .)
+    RIGHT_BRACKET   reduce using rule 20 (Dict -> LEFT_CURLY RIGHT_CURLY .)
+
+
+state 42
+
+    (21) Dict -> LEFT_CURLY Dict_Values . RIGHT_CURLY
+    (23) Dict_Values -> Dict_Values . COMMA Attribute
+
+    RIGHT_CURLY     shift and go to state 46
+    COMMA           shift and go to state 47
+
+
+state 43
+
+    (22) Dict_Values -> Attribute .
+
+    RIGHT_CURLY     reduce using rule 22 (Dict_Values -> Attribute .)
+    COMMA           reduce using rule 22 (Dict_Values -> Attribute .)
+
+
+state 44
+
+    (17) Array -> LEFT_BRACKET Array_Values RIGHT_BRACKET .
+
+    NAME            reduce using rule 17 (Array -> LEFT_BRACKET Array_Values RIGHT_BRACKET .)
+    STRING          reduce using rule 17 (Array -> LEFT_BRACKET Array_Values RIGHT_BRACKET .)
+    TABLE           reduce using rule 17 (Array -> LEFT_BRACKET Array_Values RIGHT_BRACKET .)
+    ARRAY_TABLES    reduce using rule 17 (Array -> LEFT_BRACKET Array_Values RIGHT_BRACKET .)
+    $end            reduce using rule 17 (Array -> LEFT_BRACKET Array_Values RIGHT_BRACKET .)
+    RIGHT_CURLY     reduce using rule 17 (Array -> LEFT_BRACKET Array_Values RIGHT_BRACKET .)
+    COMMA           reduce using rule 17 (Array -> LEFT_BRACKET Array_Values RIGHT_BRACKET .)
+    RIGHT_BRACKET   reduce using rule 17 (Array -> LEFT_BRACKET Array_Values RIGHT_BRACKET .)
+
+
+state 45
+
+    (19) Array_Values -> Array_Values COMMA . Value
+    (24) Value -> . Array
+    (25) Value -> . Dict
+    (26) Value -> . OFFSET_DATE_TIME
+    (27) Value -> . LOCAL_DATE_TIME
+    (28) Value -> . LOCAL_DATE
+    (29) Value -> . LOCAL_TIME
+    (30) Value -> . DECIMAL
+    (31) Value -> . EXPONENT
+    (32) Value -> . OCTA
+    (33) Value -> . HEXA
+    (34) Value -> . BIN
+    (35) Value -> . INTEGER
+    (36) Value -> . BOOLEAN
+    (37) Value -> . STRING_BIG
+    (38) Value -> . STRING
+    (16) Array -> . LEFT_BRACKET RIGHT_BRACKET
+    (17) Array -> . LEFT_BRACKET Array_Values RIGHT_BRACKET
+    (20) Dict -> . LEFT_CURLY RIGHT_CURLY
+    (21) Dict -> . LEFT_CURLY Dict_Values RIGHT_CURLY
+
+    OFFSET_DATE_TIME shift and go to state 22
+    LOCAL_DATE_TIME shift and go to state 23
+    LOCAL_DATE      shift and go to state 24
+    LOCAL_TIME      shift and go to state 25
+    DECIMAL         shift and go to state 26
+    EXPONENT        shift and go to state 27
+    OCTA            shift and go to state 28
+    HEXA            shift and go to state 29
+    BIN             shift and go to state 30
+    INTEGER         shift and go to state 31
+    BOOLEAN         shift and go to state 32
+    STRING_BIG      shift and go to state 33
+    STRING          shift and go to state 34
+    LEFT_BRACKET    shift and go to state 35
+    LEFT_CURLY      shift and go to state 36
+
+    Value                          shift and go to state 48
+    Array                          shift and go to state 20
+    Dict                           shift and go to state 21
+
+state 46
+
+    (21) Dict -> LEFT_CURLY Dict_Values RIGHT_CURLY .
+
+    NAME            reduce using rule 21 (Dict -> LEFT_CURLY Dict_Values RIGHT_CURLY .)
+    STRING          reduce using rule 21 (Dict -> LEFT_CURLY Dict_Values RIGHT_CURLY .)
+    TABLE           reduce using rule 21 (Dict -> LEFT_CURLY Dict_Values RIGHT_CURLY .)
+    ARRAY_TABLES    reduce using rule 21 (Dict -> LEFT_CURLY Dict_Values RIGHT_CURLY .)
+    $end            reduce using rule 21 (Dict -> LEFT_CURLY Dict_Values RIGHT_CURLY .)
+    RIGHT_CURLY     reduce using rule 21 (Dict -> LEFT_CURLY Dict_Values RIGHT_CURLY .)
+    COMMA           reduce using rule 21 (Dict -> LEFT_CURLY Dict_Values RIGHT_CURLY .)
+    RIGHT_BRACKET   reduce using rule 21 (Dict -> LEFT_CURLY Dict_Values RIGHT_CURLY .)
+
+
+state 47
+
+    (23) Dict_Values -> Dict_Values COMMA . Attribute
+    (14) Attribute -> . NAME EQUALS Value
+    (15) Attribute -> . STRING EQUALS Value
+
+    NAME            shift and go to state 9
+    STRING          shift and go to state 10
+
+    Attribute                      shift and go to state 49
+
+state 48
+
+    (19) Array_Values -> Array_Values COMMA Value .
+
+    RIGHT_BRACKET   reduce using rule 19 (Array_Values -> Array_Values COMMA Value .)
+    COMMA           reduce using rule 19 (Array_Values -> Array_Values COMMA Value .)
+
+
+state 49
+
+    (23) Dict_Values -> Dict_Values COMMA Attribute .
+
+    RIGHT_CURLY     reduce using rule 23 (Dict_Values -> Dict_Values COMMA Attribute .)
+    COMMA           reduce using rule 23 (Dict_Values -> Dict_Values COMMA Attribute .)
+

@@ -1,0 +1,28 @@
+instrucoes de arranque
+
+docker-compose up
+
+docker system prune -a
+
+BD:
+    API:
+    - mudanca de CSV para JSON e ID para _id (converter.py)
+    - mongoimport -d Project -c inquiricoes --file PT-UM-ADB-DIO-MAB-006-convertido.json --jsonArray
+    - mongoimport -d Project -c posts --file posts.json --jsonArray
+
+
+    Auth:
+    - mongoimport -d authProject -c users --file users.json --jsonArray (colocar ficheiro na BD)
+    - mongoexport --db authProject -c users --out users.json --jsonArray (tirar ficheiro da BD)
+
+Server:
+    - npx express-generator --view=pug
+    - npm i
+    - npm start
+
+Docker:
+
+    mongoimport --db Project --collection users --file /data/db/users.json --jsonArray &&
+    mongoimport --db Project --collection inquiricoes --file /data/db/inquiricoes.json --jsonArray &&
+    mongoimport --db Project --collection posts --file /data/db/posts.json --jsonArray &&
+    mongoimport --db Project --collection sugestoes --file /data/db/sugestoes.json --jsonArray

@@ -1,0 +1,33 @@
+{
+    "title": "TOML Example 2",
+    "produtos": {
+        "frutas": [
+            {
+                "nome": "maca",
+                "cor": "vermelha",
+                "preco": 1.99
+            },
+            {
+                "nome": "banana",
+                "cor": "amarela",
+                "preco": 0.99
+            }
+        ],
+        "verduras": [
+            {
+                "nome": "alface",
+                "cor": "verde",
+                "preco": 2.99
+            },
+            {
+                "nome": "cenoura",
+                "cor": "laranja",
+                "preco": 1.49
+            }
+        ]
+    },
+    "loja": {
+        "nome": "Supermercado do Joao",
+        "endereco": "Rua A, n 123"
+    }
+}

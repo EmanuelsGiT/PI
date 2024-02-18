@@ -1,0 +1,45 @@
+'''
+p0 Toml => Attributes Tables
+
+p1 Tables => €
+p2        | Tables Table
+p3        | Tables ARRAY_TABLES
+
+p4 Table => TABLE
+p5        | TABLE Attributes
+
+p6 Array_Tables => ARRAY_TABLES
+p7              | ARRAY_TABLES Attributes
+
+p8 Attributes => €
+p9            | Attribute Attributes
+p10 Attribute => NAME EQUALS Value
+
+p11 Array => LEFT_BRACKET Array_Values RIGHT_BRACKET
+p12 Array_Values => €
+P13              | Value
+p14              | Array_Values COMMA Value
+
+p15 Dict => LEFT_CURLY Dict_Values RIGHT_CURLY
+p16 Dict_Values => € 
+P17             | Attribute
+p18             | Dict_Values COMMA Attribute
+
+              
+            
+p19 Value => Array          
+p20       | Dict         
+p21       | OFFSET_DATE_TIME         
+p22       | LOCAL_DATE_TIME         
+p23       | LOCAL_DATE         
+p24       | LOCAL_TIME         
+p25       | DECIMAL         
+p26       | EXPONENT         
+p27       | OCTA         
+p28       | HEXA         
+p29       | BIN         
+p30       | INTEGER         
+p31       | BOOLEAN         
+P32       | STRING_BIG
+P33       | STRING
+'''

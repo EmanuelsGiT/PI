@@ -1,0 +1,65 @@
+doctype html
+html
+  head
+    title Home/Post
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='/stylesheets/w3-black.css')
+    link(rel='stylesheet' href='/stylesheets/w3.css')
+    link(rel='stylesheet' href='/stylesheets/home.css')
+  body
+    .w3-main
+      .w3-top.w3-display-topmiddle
+        .w3-bar.w3-theme.w3-left-align.w3-large.w3-padding-16
+          a.w3-bar-item.w3-button.w3-amber.w3-margin-left(href='/home') Inquirições de Génere
+          a.w3-bar-item.w3-button(href='/home/perfil') Perfil
+          a.w3-bar-item.w3-button(href='/home') Posts
+          a.w3-bar-item.w3-button(href='/home/inquiricoes') Inquirições
+          a.w3-bar-item.w3-button.w3-right(href='/home/logout') Log out
+          a.w3-bar-item.w3-button.w3-right(href='/home/sugestoes') Sugestões
+          form.w3-center(action='/home' style='margin-top: 2px')
+            select.w3-select.w3-bar-item.w3-theme.w3-margin-right(name='searchType')
+              option(value='nome') Nome
+              option(value='data') Data
+            input.w3-input.w3-bar-item.w3-round-xlarge(name='search', type='text', placeholder='Search')
+            button.w3-bar-item.w3-theme.w3-button(type="submit") Search
+      h5.w3-padding-top-64(style="font-size: 5vmax;") Post
+      .w3-content
+          .w3-row
+            .w3-card.w3-round-xlarge.div(style='background: rgba(219, 219, 219, 0.9);').w3-hover-shadow
+              if (user.username == post.nome || user.level == 'admin')
+                .w3-right
+                  a.w3-red.w3-button.w3-margin.w3-round-large(href=`/home/post/delete/${post._id}`) X
+              .w3-right.w3-margin 
+                a(href=`/home/inquiricao/${post.registo}`) Registo
+              h1.w3-text-teal.w3-margin-left #{post.nome}
+              .w3-right.w3-margin-right #{post.data} 
+              p.w3-margin-left #{post.descricao}
+            .w3-card.w3-round-xlarge.post-box.w3-hover-shadow.w3-panel.w3-padding-16
+                form.w3-padding-bottom-64(action=`/home/post/${post._id}`, method='POST')
+                    p.div(style="font-size: 1vmax;").w3-margin-left
+                      strong #{user.username}
+                    input(type='hidden' name='nome' value=user.username)
+                    input.w3-input.w3-bar-item.w3-round-xlarge(name='coment', type='text', placeholder='Comente aqui!') 
+                    button.w3-bar-item.w3-green.w3-button.w3-right.w3-margin.w3-round-large(type="submit") Comentar
+            each comment in post.coments 
+                .w3-card.w3-round-xlarge.post-box.w3-hover-shadow             
+                  if (user.username == comment.username || user.level == 'admin')
+                    a.w3-red.w3-button.w3-margin.w3-right.w3-round-large(href=`/home/post/${post._id}/delete/${comment._id}`) X
+                  p.w3-margin-left.div(style="font-size: 1vmax;")
+                    strong #{comment.username} 
+                  p.w3-margin #{comment.descricao}    
+      if post.coments.length < 5
+        .w3-bottom
+          footer.w3-center
+            .w3-container.w3-theme-l1
+              p
+                | Project made for 
+                a(href='https://epl.di.uminho.pt/~jcr/AULAS/EngWeb2023/index.html' target='_blank') EngWeb
+      else
+        .w3-display-bottom
+          footer.w3-center
+            .w3-container.w3-theme-l1
+              p
+                | Project made for 
+                a(href='https://epl.di.uminho.pt/~jcr/AULAS/EngWeb2023/index.html' target='_blank') EngWeb

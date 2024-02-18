@@ -1,0 +1,86 @@
+doctype html
+html
+  head
+    title Home/Admin
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='/stylesheets/w3-black.css')
+    link(rel='stylesheet' href='/stylesheets/w3.css')
+    link(rel='stylesheet' href='/stylesheets/home.css')
+    link(rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css")
+  body
+    .w3-main
+      .w3-top.w3-display-topmiddle
+        .w3-bar.w3-theme.w3-left-align.w3-large.w3-padding-16
+          a.w3-bar-item.w3-button.w3-amber.w3-margin-left(href='/home') Inquirições de Génere
+          a.w3-bar-item.w3-button(href='/home/perfil') Perfil
+          a.w3-bar-item.w3-button(href='/home') Posts
+          a.w3-bar-item.w3-button(href='/home/inquiricoes') Inquirições
+          a.w3-bar-item.w3-button.w3-right(href='/home/logout') Log out
+          a.w3-bar-item.w3-button(href='/home/inquiricoes/newInquiricao') Adicionar inquiricão
+          a.w3-bar-item.w3-button(href='/home/admin/register') Adicionar novo user
+          a.w3-bar-item.w3-button.w3-right(href='/home/sugestoes') Sugestões
+      h5.w3-padding-top-64(style="font-size: 5vmax;") Administração
+      .w3-content
+        each user in users
+          .w3-row.w3-card.w3-round-xlarge.post-box.w3-hover-shadow.w3-margin
+            .w3-row
+              .w3-col
+                p(style="font-size: 0.9vmax; display: inline-block; vertical-align: middle;").w3-margin #{user.username}
+                .w3-right
+                  button.w3-button.w3-margin.w3-grey.w3-round-large(onclick=`document.getElementById('${user.username}').style.display='block'`, style="vertical-align: middle;") Editar    
+                  a.w3-button.w3-margin.w3-red.w3-round-large(href=`/home/user/delete/${user._id}`, style="vertical-align: middle;") X
+            .w3-modal(id = `${user.username}`)
+                .w3-modal-content
+                    header.w3-container.w3-amber
+                        span.w3-button.w3-display-topright(onclick=`document.getElementById('${user.username}').style.display='none'`) &times;
+                        h2 #{user.username}
+                    .w3-container
+                        form.w3-padding-bottom-64(action=`/home/admin/user/${user._id}`, method='POST')
+                            p.div(style="font-size: 1vmax;")
+                              strong Nome: 
+                            input.w3-input.w3-bar-item.w3-round-xlarge(name='nome', type='text', placeholder=user.username, readonly)
+                            p.div(style="font-size: 1vmax;")
+                              strong Email: 
+                            input.w3-input.w3-bar-item.w3-round-xlarge(name='email', type='text', placeholder=user.email)
+                            p.div(style="font-size: 1vmax;")
+                              strong Nova password: 
+                            input.w3-input.w3-bar-item.w3-round-xlarge(name='pass', type='password', placeholder='password')
+                            p.div(style="font-size: 1vmax;")
+                              strong Confirmar password: 
+                            input.w3-input.w3-bar-item.w3-round-xlarge(name='npass', type='password', placeholder='password')
+                            p.div(style="font-size: 1vmax;")
+                              strong Filiação: 
+                            input.w3-input.w3-bar-item.w3-round-xlarge(name='filiacao', type='text', placeholder=user.filiacao)
+                            p.div(style="font-size: 1vmax;")
+                              strong Nível: 
+                            input.w3-input.w3-bar-item.w3-round-xlarge(name='nivel', type='text', placeholder=user.level)
+                            p.div(style="font-size: 1vmax;")
+                              strong Data de Registo: 
+                            input.w3-input.w3-bar-item.w3-round-xlarge(name='dataRegisto', type='text', placeholder=user.dateCreated, readonly)
+                            p.div(style="font-size: 1vmax;")
+                              strong Data do Último Acesso: 
+                            input.w3-input.w3-bar-item.w3-round-xlarge(name='dataUltimo', type='text', placeholder=user.dateLastAccess, readonly)
+                            button.w3-bar-item.w3-green.w3-button.w3-right.w3-margin.w3-round-large(type="submit") Submit
+                    footer.w3-container.w3-amber.w3-center
+                      p
+                        | Project made for 
+                        a(href='https://epl.di.uminho.pt/~jcr/AULAS/EngWeb2023/index.html' target='_blank') EngWeb
+                        
+      if users.length < 6
+        .w3-bottom
+          footer.w3-center
+            .w3-container.w3-theme-l1
+              p
+                | Project made for 
+                a(href='https://epl.di.uminho.pt/~jcr/AULAS/EngWeb2023/index.html' target='_blank') EngWeb
+
+      else
+        .w3-display-bottom
+          footer.w3-center
+            .w3-container.w3-theme-l1
+              p
+                | Project made for 
+                a(href='https://epl.di.uminho.pt/~jcr/AULAS/EngWeb2023/index.html' target='_blank') EngWeb
+
+

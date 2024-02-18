@@ -1,0 +1,16 @@
+[
+  {
+    "UId": "pg53851",
+    "Email": "pg53851@alunos.uminho.pt",
+    "Name": "Guilherme Sampaio",
+    "Role": "admin",
+    "Password": "password"
+  },
+  {
+    "UId": "pg50050",
+    "Email": "pg50050@alunos.uminho.pt",
+    "Name": "Tiago Sousa",
+    "Role": "mstudent",
+    "Password": "password"
+  }
+]

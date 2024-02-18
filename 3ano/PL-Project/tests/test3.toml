@@ -1,0 +1,21 @@
+title = "Exemplo de artigo"
+
+[autor]
+nome = "Joao Silva"
+bio = "Joao Silva e um escritor premiado e especialista em assuntos relacionados a tecnologia."
+
+[publicacao]
+data = 2023-05-13T12:00:00Z
+local = "Sao Paulo"
+
+[[secoes]]
+nome = "Introducao"
+conteudo = "Este e o conteudo da secao de introducao."
+
+[[secoes]]
+nome = "Desenvolvimento"
+conteudo = "Este e o conteudo da secao de desenvolvimento."
+
+[[secoes]]
+nome = "Conclusao"
+conteudo = "Este e o conteudo da secao de conclusao."

@@ -1,0 +1,26 @@
+---
+# Database creation
+- name: Create storage class
+  kubernetes.core.k8s:
+      src: mysql/mysql-create_pvc.yml
+      wait: true
+
+- name: Claim pvc 
+  kubernetes.core.k8s:
+    src: mysql/mysql-pvc.yml
+  register: claim
+  until: "claim.result.status.phase!='pending'"
+  retries: 10
+  delay: 2
+
+
+- name: Deploy MySQL
+  kubernetes.core.k8s:
+    src: mysql/mysql-deployment.yml
+    wait: true
+
+
+- name: MySQL service
+  kubernetes.core.k8s:
+    src: mysql/mysql-service.yml
+    wait: true

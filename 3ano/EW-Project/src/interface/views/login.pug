@@ -1,0 +1,23 @@
+doctype html
+html
+	head
+		title Login
+		meta(charset="utf-8")
+		link(rel='stylesheet', href='/stylesheets/css/login.css')
+	body
+		div(class="box-form")
+			div(class="left")
+				div(class="overlay")
+					h1 Inquirições de Génere
+			div(class="right")
+				h5 Login
+				if error
+					p Wrong Credentials!
+				div(class="inputs")
+					form(action="/login", method="POST")
+						input(type="text", name="username" placeholder="username")
+						br
+						input(type="password", name="password", placeholder="password")
+						br
+						br
+						button(type="submit") Login

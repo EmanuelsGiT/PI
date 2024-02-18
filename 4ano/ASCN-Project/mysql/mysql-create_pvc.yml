@@ -1,0 +1,9 @@
+---
+# Creation of PVC (Persistent Volume Claim)
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-storage
+  namespace: default
+provisioner: kubernetes.io/gce-pd
+volumeBindingMode: WaitForFirstConsumer

@@ -1,0 +1,83 @@
+---
+#Laravel deployment
+- name: Change Seed Database
+  #lineinfile:
+  #  path: laravel_app/laravel-deployment.yml
+  #  regexp: '- name: seed_database[ \t]\n[ \t]value:).*(?=\n)'
+  #  line: '  app_ip: {{ laravel_service.resources[0].status.loadBalancer.ingress[0].ip }}'
+  replace:
+    path: laravel_app/laravel-deployment.yml
+    regexp: '(- name: seed_database\n\s*value:\s).*(?=\n)'
+    replace: '\1"{{seed_database|default("false") }}"'
+  #when : seed_database
+
+- name: Deploy Redis
+  kubernetes.core.k8s:
+    src: laravel_app/redis-deployment.yml
+    wait: true
+
+- name: Redis Service
+  kubernetes.core.k8s:
+    src: laravel_app/redis-service.yml
+    wait: true
+
+- name: Wait for Redis Pod to be ready
+  kubernetes.core.k8s_info:
+    kind: Pod
+    label_selectors:
+      - app=redis
+    namespace: default
+    wait: true
+    wait_sleep: 10
+    wait_timeout: 300
+
+- name: Deploy Laravel
+  kubernetes.core.k8s:
+    src: laravel_app/laravel-deployment.yml
+    wait: true
+
+- name: Laravel Service
+  kubernetes.core.k8s:
+    src: laravel_app/laravel-service.yml
+    wait: true
+
+- name: Get Laravel Service
+  kubernetes.core.k8s_info:
+    kind: Service
+    label_selectors:
+      - app = laravel
+  register: laravel_service
+  until: "laravel_service.resources[0].status.loadBalancer.ingress is defined"
+  retries: 6
+  delay: 20
+
+#- name: Extract Laravel IP
+#  set_fact:
+#    APP_SERVICE_IP: "{{ laravel_service.resources[0].status.loadBalancer.ingress[0].ip }}"
+
+- name: Extract and Update app_ip in gcp.yml
+  lineinfile:
+    path: inventory/gcp.yml
+    regexp: '^  app_ip: <APP_SERVICE_IP>'
+    line: '  app_ip: {{ laravel_service.resources[0].status.loadBalancer.ingress[0].ip }}'
+
+- name: Implementing Horizontal Autoscaling
+  kubernetes.core.k8s:
+    src: laravel_app/replication.yml
+    wait: true
+
+- name: Enabling Node Autoscaling
+  shell: gcloud container clusters update --zone us-central1-a ascn-cluster --enable-autoscaling --node-pool=default-pool --min-nodes=2 --max-nodes=6 --project=ascn-project-404621
+
+
+#- name: Check Dashboards
+#  shell: 'gcloud monitoring dashboards list --filter="displayName=Laravelio-Monitor"'
+#  register: result
+#  retries: 10
+#  delay: 10
+
+#- name: Create Dashboard
+#  shell: "gcloud monitoring dashboards create --config-from-file=Monitoring.json"
+#  when: "result.stderr == 'Listed 0 items.'"
+#  retries: 10
+#  delay: 10

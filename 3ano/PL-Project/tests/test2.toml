@@ -1,0 +1,22 @@
+[rede]
+ip = "192.168.1.1"
+gateway = "192.168.1.254"
+dns = ["8.8.8.8", "8.8.4.4"]
+
+[banco-De-90dados]
+servidor = "localhost"
+porta = 3306
+nome-banco = "exemplo"
+usuario = "joao"
+senha = "12345"
+#blalalalala e um comentario
+[[apl90Icacao]]
+versao = "1.0.0"
+modo-debug = false
+[aplicacao.recursos]
+cache = true
+logging = true
+[aplicacao.recursos.servicos]
+email = true
+sms.message.message2 = false
+tabela = {var = 2 , var2 = 4}

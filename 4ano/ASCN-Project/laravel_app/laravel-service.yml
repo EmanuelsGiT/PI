@@ -1,0 +1,18 @@
+---
+# Service for exposing Laravel
+apiVersion: v1
+kind: Service
+metadata:
+  name: laravel-service 
+  namespace: default
+  labels:
+    app: laravel
+spec:
+  type: LoadBalancer
+  selector:
+    app: laravel
+  #loadBalancerIP: "STATIC_IP"
+  ports:
+    - targetPort: 8000 # port that containers are listening on
+      port: 80 # port number exposed internally in the cluster
+      #nodePort: 30008 # a static port assigned on each the node

@@ -1,0 +1,7 @@
+**/__pycache__/
+**/migrations/
+.idea/*
+!.idea/*.iml
+!.idea/modules.xml
+!.idea/runConfigurations/
+.env/

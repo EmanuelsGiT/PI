@@ -1,0 +1,54 @@
+#Installation and configuration of laravel deployment 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laravel-deployment
+  namespace: default
+  labels:
+    app: laravel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: laravel
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: laravel
+    spec:
+      containers:
+      - name: laravel
+        image: emanuelsdocker/ascn-project
+        env: 
+        - name: DB_HOST
+          value: mysql-service
+        - name: DB_CONNECTION
+          value: mysql
+        - name: DB_DATABASE
+          value: laravel
+        - name: DB_USERNAME
+          value: "myuser"
+        - name: DB_PASSWORD
+          value: "password"
+        - name: seed_database
+          value: "false"
+        - name: REDIS_HOST
+          value: "redis"
+        - name: REDIS_PORT
+          value: "6379"
+        - name: SESSION_DRIVER
+          value: "redis"
+        #- name: SESSION_SECURE_COOKIE
+        #  value: "false"
+        #- name: SESSION_DOMAIN
+        #  value: ""
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            cpu: "250m"
+          limits:
+            cpu: "500m"

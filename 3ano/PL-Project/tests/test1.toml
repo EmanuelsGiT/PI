@@ -1,0 +1,26 @@
+title = "TOML Example 2"
+[produtos]
+
+[[produtos.frutas]]
+nome = "maca"
+cor = "vermelha"
+preco = 1.99
+
+[[produtos.frutas]]
+nome = "banana"
+cor = "amarela"
+preco = 0.99
+
+[[produtos.verduras]]
+nome = "alface"
+cor = "verde"
+preco = 2.99
+
+[[produtos.verduras]]
+nome = "cenoura"
+cor = "laranja"
+preco = 1.49
+
+[loja]
+nome = "Supermercado do Joao"
+endereco = "Rua A, n 123"
